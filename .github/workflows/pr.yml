@@ -1,0 +1,23 @@
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    name: 🍺 Pull Request Check
+    steps:
+      - uses: oven-sh/setup-bun@v1
+        name: 🍞 Install Bun
+        with:
+          bun-version: latest
+      - name: 🏗️ Install Package
+        run: |
+          bun install
+      - name: 📘 Run type check
+        run: |
+          bun type-check
+      - name: 📒 Run eslint
+        run: |
+          bun lint
+
