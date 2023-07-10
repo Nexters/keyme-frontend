@@ -15,15 +15,7 @@ jobs:
         with:
           bun-version: latest
 
-      - uses: actions/cache@v3
-        name: 🪄 Check package cache
-        id: cache
-        with:
-          path: ~/.bun
-          key: ${{ runner.os }}-node-${{ hashFiles('**/bun.lockb') }}
-
       - name: 🏗️ Install Package
-        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           bun install
 
