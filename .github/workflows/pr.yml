@@ -3,21 +3,34 @@ on:
     branches:
       - main
 jobs:
-  pr:
+  pr-check:
     runs-on: ubuntu-latest
     name: 🍺 Pull Request Check
     steps:
+      - uses: actions/checkout@v3
+        name: 🌱 Checkout branch
+
       - uses: oven-sh/setup-bun@v1
         name: 🍞 Install Bun
         with:
           bun-version: latest
+
+      - uses: actions/cache@v3
+        name: 🪄 Check package cache
+        id: cache
+        with:
+          path: ~/.bun
+          key: ${{ runner.os }}-node-${{ hashFiles('**/bun.lockb') }}
+
       - name: 🏗️ Install Package
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           bun install
+
       - name: 📘 Run type check
         run: |
           bun type-check
+
       - name: 📒 Run eslint
         run: |
           bun lint
-
