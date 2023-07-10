@@ -1,0 +1,28 @@
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest
+    name: 🍺 Pull Request Check
+    steps:
+      - uses: actions/checkout@v3
+        name: 🌱 Checkout branch
+
+      - uses: oven-sh/setup-bun@v1
+        name: 🍞 Install Bun
+        with:
+          bun-version: latest
+
+      - name: 🏗️ Install Package
+        run: |
+          bun install
+
+      - name: 📘 Run type check
+        run: |
+          bun type-check
+
+      - name: 📒 Run eslint
+        run: |
+          bun lint

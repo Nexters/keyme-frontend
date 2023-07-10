@@ -6,7 +6,8 @@
     "lint:fix": "TIMING=1 eslint \"**/*.{ts,tsx}\" --fix --no-error-on-unmatched-pattern",
     "format": "prettier --write .",
     "postinstall": "husky install",
-    "lint-staged": "lint-staged -v"
+    "lint-staged": "lint-staged -v",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "husky": "^8.0.3",

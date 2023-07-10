@@ -1,3 +1,6 @@
 {
+  "**/*.ts?(x)": [
+    "bun type-check"
+  ],
   "*.{js,ts,jsx,tsx}": ["bun format", "bun lint:fix"]
 }
