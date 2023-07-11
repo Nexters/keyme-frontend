@@ -8,6 +8,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
   ],
   rules: {
+    'import/no-unresolved': 'error',
     'react/jsx-key': 'off',
     'react/no-unescaped-entities': 'off',
     'react/self-closing-comp': [
@@ -43,5 +44,16 @@ module.exports = {
     'import/named': 'off',
     'react/display-name': 'off',
     '@typescript-eslint/no-empty-function': 'off',
+  },
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: './',
+      },
+    },
   },
 };
