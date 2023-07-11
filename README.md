@@ -1,36 +1,98 @@
-# Next.js with Bun runtime
+<a name="readme-top"></a>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with Bun.
+# 🔑 Key Me Frontend
 
-## Getting Started
+<details>
+  <summary>목차</summary>
 
-### Cloning the repo
+- [🔑 Key Me Frontend](#-key-me-frontend)
+  - [⛰️ 개발환경 설정하기](#️-개발환경-설정하기)
+  - [👟 개발하기](#-개발하기)
+  - [🚚 배포하기](#-배포하기)
+  - [👮‍♂️ Commit 컨벤션](#️-commit-컨벤션)
+  - [🧑‍💻 팀 구성](#-팀-구성)
 
-```sh
-bun create next ./app
+</details>
+
+## ⛰️ 개발환경 설정하기
+
+<img src='docs/bun-logo.png'>
+
+해당 프로젝트는 [bun](https://bun.sh/)을 사용해 개발을 하고 있으며 아래의 명령어를 통해 설치할 수 있습니다.
+
+```shell
+curl -fsSL https://bun.sh/install | bash
 ```
 
-First, run the development server:
+<p align="right"><a href="#readme-top">⬆️</a></p>
 
-```bash
+## 👟 개발하기
+
+- 📦 의존성 설치하기
+
+```shell
+bun install
+```
+
+- 🏃 개발서버 실행하기
+
+```shell
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🏗️ 빌드하기
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```shell
+bun build
+```
 
-## Learn More
+<p align="right"><a href="#readme-top">⬆️</a></p>
 
-To learn more about Next.js, take a look at the following resources:
+## 🚚 배포하기
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+TBD
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<p align="right"><a href="#readme-top">⬆️</a></p>
 
-## Deploy on Vercel
+## 👮‍♂️ Commit 컨벤션
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- feat: 새로운 기능 추가
+- fix: 버그 수정
+- refact: 리팩토링
+- design: 사용자 UI 디자인 변경
+- comment: 필요한 주석 추가 및 변경
+- test: 테스트 코드 추가, 수정, 삭제
+- docs: 문서 작성
+- chore: 기타 변경사항
+- rename: 파일 혹은 폴더명 수정하거나 옮기는 경우
+- remove: 파일을 삭제하는 작업만 수행하는 경우
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p align="right"><a href="#readme-top">⬆️</a></p>
+
+## 🧑‍💻 팀 구성
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/alstn2468">
+        <img
+          src="https://avatars.githubusercontent.com/u/30997311?v=4?s=100"
+          width="100px;"
+          alt="alstn2468"
+        />
+        <br />
+        <sub>
+          <b>김민수 (23기)</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<div align='center'>
+  <sub>
+    <sup>
+      NEXTERS 23nd 인해전술
+    </sup>
+  </sub>
+</div>
