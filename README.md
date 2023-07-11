@@ -6,7 +6,6 @@
   <summary>목차</summary>
 
 - [🔑 Key Me Frontend](#-key-me-frontend)
-  - [⛰️ 개발환경 설정하기](#️-개발환경-설정하기)
   - [👟 개발하기](#-개발하기)
   - [🚚 배포하기](#-배포하기)
   - [👮‍♂️ Commit 컨벤션](#️-commit-컨벤션)
@@ -14,36 +13,24 @@
 
 </details>
 
-## ⛰️ 개발환경 설정하기
-
-<img src='docs/bun-logo.png'>
-
-해당 프로젝트는 [bun](https://bun.sh/)을 사용해 개발을 하고 있으며 아래의 명령어를 통해 설치할 수 있습니다.
-
-```shell
-curl -fsSL https://bun.sh/install | bash
-```
-
-<p align="right"><a href="#readme-top">⬆️</a></p>
-
 ## 👟 개발하기
 
 - 📦 의존성 설치하기
 
 ```shell
-bun install
+yarn
 ```
 
 - 🏃 개발서버 실행하기
 
 ```shell
-bun dev
+yarn dev
 ```
 
 - 🏗️ 빌드하기
 
 ```shell
-bun build
+yarn build
 ```
 
 <p align="right"><a href="#readme-top">⬆️</a></p>

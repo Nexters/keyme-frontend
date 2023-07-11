@@ -1,4 +1,4 @@
 {
-  "**/*.ts?(x)": ["bun type-check"],
-  "*.{js,ts,jsx,tsx}": ["bun format", "bun lint:fix"]
+  "**/*.{js,ts,jsx,tsx,md}": ["yarn format"],
+  "**/*.{js,ts,jsx,tsx}": ["yarn lint:fix"]
 }

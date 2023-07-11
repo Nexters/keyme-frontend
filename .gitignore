@@ -39,4 +39,15 @@ yarn-error.log*
 **/*.tgz
 **/*.log
 package-lock.json
-**/*.bun
+
+# yarn berry
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# typescript
+tsconfig.tsbuildinfo

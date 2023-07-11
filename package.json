@@ -2,36 +2,43 @@
   "name": "keyme",
   "version": "0.0.0",
   "scripts": {
+    "dev": "next start",
+    "start": "next start",
+    "develop": "next start",
+    "build": "next build",
     "lint": "TIMING=1 eslint \"**/*.{ts,tsx}\" --no-error-on-unmatched-pattern",
     "lint:fix": "TIMING=1 eslint \"**/*.{ts,tsx}\" --fix --no-error-on-unmatched-pattern",
     "format": "prettier --write .",
     "postinstall": "husky install",
     "lint-staged": "lint-staged -v",
-    "type-check": "tsc --noEmit"
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
   },
   "dependencies": {
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
-    "next": "12.2.3",
-    "prettier": "^3.0.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-is": "^18"
+    "@effect/data": "^0.14.1",
+    "@effect/io": "^0.32.1",
+    "next": "13.4.9",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18",
+    "@types/node": "20.4.1",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "eslint": "^8.44.0",
     "eslint-config-next": "^13.4.9",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "bun-framework-next": "^12.2",
-    "typescript": "latest",
-    "react-refresh": "0.10.0"
-  },
-  "module": "index.js"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "pinst": "^3.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "5.1.6"
+  }
 }
