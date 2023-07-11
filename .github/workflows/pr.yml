@@ -19,7 +19,7 @@ jobs:
 
       - name: 🏗️ Install Package
         run: |
-          yarn
+          yarn install --frozen-lockfile
 
       - name: 📘 Run type check
         run: |
