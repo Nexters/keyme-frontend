@@ -13,11 +13,13 @@ jobs:
       - uses: actions/setup-node@v3
         name: 🌳 Setup Node.js
         with:
-          node-version: 18
+          cache: yarn
+          cache-dependency-path: yarn.lock
+          node-version-file: '.nvmrc'
 
       - name: 🏗️ Install Package
         run: |
-          yarn
+          yarn install --frozen-lockfile
 
       - name: 📘 Run type check
         run: |
