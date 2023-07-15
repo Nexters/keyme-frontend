@@ -1,7 +1,9 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['import', 'eslint-plugin-simple-import-sort', 'unused-imports'],
+  ignorePatterns: ['.pnp.*', '.yarn/**/*'],
   extends: [
+    'next/core-web-vitals',
     'next',
     'prettier',
     'plugin:import/recommended',
