@@ -3531,6 +3531,7 @@ __metadata:
     husky: ^8.0.3
     lint-staged: ^13.2.3
     next: 13.4.9
+    next-themes: ^0.2.1
     pinst: ^3.0.0
     prettier: ^3.0.0
     react: 18.2.0
@@ -3946,6 +3947,17 @@ __metadata:
   version: 0.6.3
   resolution: "negotiator@npm:0.6.3"
   checksum: b8ffeb1e262eff7968fc90a2b6767b04cfd9842582a9d0ece0af7049537266e7b2506dfb1d107a32f06dd849ab2aea834d5830f7f4d0e5cb7d36e1ae55d021d9
+  languageName: node
+  linkType: hard
+
+"next-themes@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "next-themes@npm:0.2.1"
+  peerDependencies:
+    next: "*"
+    react: "*"
+    react-dom: "*"
+  checksum: ebc248b956138e73436c4ed0a0f0a877a0a48a33156db577029b8b8469e48b5c777d61abf2baeb75953378febea74e067a4869ff90b4a3e94fce123289b862ba
   languageName: node
   linkType: hard
 

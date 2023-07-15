@@ -1,11 +1,14 @@
 import { globalStyle } from '@vanilla-extract/css';
 
+import { vars } from './theme.css';
+
 globalStyle('*', {
   font: 'inherit',
   color: 'inherit',
   boxSizing: 'border-box',
   padding: 0,
   margin: 0,
+  background: vars.colors.background,
 });
 
 globalStyle('html, body', {
@@ -20,13 +23,4 @@ globalStyle('a', {
 
 globalStyle('ol, ul', {
   listStyle: 'none',
-});
-
-globalStyle(':root', {
-  '@media': {
-    '(prefers-color-scheme: dark)': {
-      color: '#fff',
-      colorScheme: 'dark',
-    },
-  },
 });

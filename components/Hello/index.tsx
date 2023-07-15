@@ -2,23 +2,25 @@
 
 import * as Either from '@effect/data/Either';
 import { pipe } from '@effect/data/Function';
-import { useState } from 'react';
 
-import { container } from './styles.css';
+import { useTheme } from '@/hooks/useTheme';
+
+import { button, container } from './styles.css';
 
 function Hello() {
-  const [is, setIs] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
   const value = pipe(
-    is,
-    (is) => (is ? Either.right('Hello World!') : Either.left('World Hello!')),
+    theme,
+    (is) => (is ? Either.right('Dark Mode') : Either.left('Light Mode')),
     Either.merge,
   );
-  const toggle = () => setIs((prev) => !prev);
 
   return (
     <div className={`${container}`}>
-      <p>{value}</p>
-      <button onClick={toggle}>TOGGLE</button>
+      <button className={`${button}`} onClick={toggleTheme}>
+        {value}
+      </button>
     </div>
   );
 }
