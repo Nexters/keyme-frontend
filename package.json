@@ -2,9 +2,9 @@
   "name": "keyme",
   "version": "0.0.0",
   "scripts": {
-    "dev": "next start",
+    "dev": "next dev",
+    "develop": "next dev",
     "start": "next start",
-    "develop": "next start",
     "build": "next build",
     "lint": "TIMING=1 eslint \"**/*.{ts,tsx}\" --no-error-on-unmatched-pattern",
     "lint:fix": "TIMING=1 eslint \"**/*.{ts,tsx}\" --fix --no-error-on-unmatched-pattern",
