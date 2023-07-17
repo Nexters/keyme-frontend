@@ -1,29 +1,13 @@
-'use client';
-
-import { ThemeProvider } from 'next-themes';
+import { Suspense } from 'react';
 
 import Hello from '@/components/Hello';
-import { useMounted } from '@/hooks/useMounted';
-import { darkTheme, lightTheme } from '@/styles/theme.css';
 
-function Home() {
-  const mounted = useMounted();
-
-  if (!mounted) {
-    return null;
-  }
-
+function Page() {
   return (
-    <ThemeProvider
-      attribute='class'
-      value={{
-        light: lightTheme,
-        dark: darkTheme,
-      }}
-    >
+    <Suspense fallback={<p>Loading...</p>}>
       <Hello />
-    </ThemeProvider>
+    </Suspense>
   );
 }
 
-export default Home;
+export default Page;
