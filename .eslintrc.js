@@ -3,13 +3,29 @@ module.exports = {
   plugins: ['import', 'eslint-plugin-simple-import-sort', 'unused-imports'],
   ignorePatterns: ['.pnp.*', '.yarn/**/*'],
   extends: [
+    'eslint:recommended',
     'next/core-web-vitals',
     'next',
     'prettier',
     'plugin:import/recommended',
     'plugin:@typescript-eslint/recommended',
   ],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true,
+        project: './',
+      },
+    },
+  },
   rules: {
+    'import/no-cycle': [
+      'error',
+      { allowUnsafeDynamicCyclicDependency: true },
+    ],
     'import/no-unresolved': 'error',
     'react/jsx-key': 'off',
     'react/no-unescaped-entities': 'off',
@@ -22,6 +38,7 @@ module.exports = {
     ],
     'react/jsx-first-prop-new-line': 'error',
     'comma-dangle': ['error', 'always-multiline'],
+    eqeqeq: ['warn', 'smart'],
     indent: ['error', 2],
     quotes: ['error', 'single'],
     'eol-last': 'error',
@@ -40,22 +57,10 @@ module.exports = {
       'error',
       { count: 1, considerComments: true },
     ],
-    'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['warn'],
     '@typescript-eslint/ban-types': 'warn',
     'import/named': 'off',
     'react/display-name': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-  },
-  settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
-    'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true,
-        project: './',
-      },
-    },
   },
 };

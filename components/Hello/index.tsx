@@ -8,10 +8,10 @@ import { useTheme } from '@/hooks/useTheme';
 import { button, container } from './styles.css';
 
 function Hello() {
-  const { theme, toggleTheme } = useTheme();
+  const { isDark, toggleTheme } = useTheme();
 
   const value = pipe(
-    theme,
+    isDark,
     (is) => (is ? Either.right('Dark Mode') : Either.left('Light Mode')),
     Either.merge,
   );

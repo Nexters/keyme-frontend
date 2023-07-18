@@ -10,7 +10,7 @@ export function useTheme() {
 
   return {
     ...themeProps,
-    theme: themeProps.theme as Theme,
+    isDark: (themeProps.theme as Theme) === 'dark',
     setTheme,
     toggleTheme,
   };
