@@ -51,3 +51,6 @@ package-lock.json
 
 # typescript
 tsconfig.tsbuildinfo
+
+# env variables
+.env
