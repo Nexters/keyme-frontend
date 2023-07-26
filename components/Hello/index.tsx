@@ -6,7 +6,7 @@ import { pipe } from '@effect/data/Function';
 import { useTheme } from '@/hooks/useTheme';
 import { useHelloQuery } from '@/quries/useHelloQuery';
 
-import { button, container } from './styles.css';
+import { button } from './styles.css';
 
 function Hello() {
   const { isDark, toggleTheme } = useTheme();
@@ -19,12 +19,10 @@ function Hello() {
   );
 
   return (
-    <div className={`${container}`}>
-      <button className={`${button}`} onClick={toggleTheme}>
-        {value}
-        {JSON.stringify(data)}
-      </button>
-    </div>
+    <button className={`${button}`} onClick={toggleTheme}>
+      {value}
+      {JSON.stringify(data)}
+    </button>
   );
 }
 
