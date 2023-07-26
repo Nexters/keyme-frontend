@@ -8,13 +8,13 @@ import { ThemeProvider } from './ThemeProvider';
 
 function Providers({ children }: React.PropsWithChildren) {
   return (
-    <GlobalErrorBoundray>
-      <ThemeProvider>
+    <ThemeProvider>
+      <GlobalErrorBoundray>
         <QueryClientProvider>
           <ApiErrorBoundary>{children}</ApiErrorBoundary>
         </QueryClientProvider>
-      </ThemeProvider>
-    </GlobalErrorBoundray>
+      </GlobalErrorBoundray>
+    </ThemeProvider>
   );
 }
 

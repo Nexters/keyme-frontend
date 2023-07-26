@@ -8,13 +8,14 @@ globalStyle('*', {
   boxSizing: 'border-box',
   padding: 0,
   margin: 0,
-  background: vars.colors.background,
 });
 
 globalStyle('html, body', {
   maxWidth: '100vw',
   overflowX: 'hidden',
   height: '100%',
+  color: vars.colors.text.normal,
+  background: vars.colors.background,
 });
 
 globalStyle('a', {

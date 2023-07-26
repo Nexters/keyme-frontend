@@ -1,3 +1,5 @@
+import { container } from '@/styles/layout.css';
+
 type Props = {
   error: Error;
   reset: VoidFunction;
@@ -5,7 +7,7 @@ type Props = {
 
 function ApiErrorFallback({ error, reset }: Props) {
   return (
-    <div>
+    <div className={`${container}`}>
       <h1>{error.message}</h1>
       <button onClick={reset}>RESET</button>
     </div>
