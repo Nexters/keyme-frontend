@@ -32,10 +32,13 @@ function Range() {
             onTouchStart={props.onTouchStart}
             style={{
               ...props.style,
-              width: 400,
+              width: 'calc(100vw - 80px)',
+              maxWidth: '300px',
               height: 36,
               display: 'flex',
               position: 'fixed',
+              left: '50%',
+              transform: 'translateX(-50%)',
               bottom: 20,
             }}
           >
@@ -59,22 +62,15 @@ function Range() {
             key={props.key}
             style={{
               ...props.style,
+              borderRadius: '100%',
               height: '42px',
               width: '42px',
-              borderRadius: '4px',
-              backgroundColor: vars.colors.secondary,
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              backgroundColor: vars.colors.secondary,
             }}
-          >
-            <div
-              style={{
-                height: '16px',
-                width: '5px',
-              }}
-            />
-          </div>
+          />
         )}
       />
     </div>
