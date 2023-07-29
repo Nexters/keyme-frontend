@@ -4,7 +4,7 @@ import '@/styles/theme.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import Providers from '@/contexts/Provider';
+import { Providers } from '@/contexts';
 import { container } from '@/styles/layout.css';
 
 const inter = Inter({ subsets: ['latin'] });
