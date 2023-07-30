@@ -29,3 +29,7 @@ export const absoluteCenter = style([
 export const circle = style({
   borderRadius: '100%',
 });
+
+export const pointer = style({
+  cursor: 'pointer',
+});
