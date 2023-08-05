@@ -1,7 +1,4 @@
-import {
-  ApiErrorBoundary,
-  GlobalErrorBoundray,
-} from '@/components/ErrorBoundary';
+import { ApiErrorBoundary, GlobalErrorBoundray } from '@/components';
 
 import { QueryClientProvider } from './QueryClientProvider';
 import { ThemeProvider } from './ThemeProvider';

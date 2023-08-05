@@ -27,10 +27,12 @@
     "@vanilla-extract/css": "^1.12.0",
     "@vanilla-extract/next-plugin": "^2.1.3",
     "axios": "^1.4.0",
+    "framer-motion": "^10.15.0",
     "next": "13.4.9",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-range": "^1.8.14"
   },
   "devDependencies": {
     "@types/node": "20.4.1",

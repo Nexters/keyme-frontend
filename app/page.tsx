@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 
-import Hello from '@/components/Hello';
+import { Range } from '@/components';
 
 function Page() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      <Hello />
+      <Range />
     </Suspense>
   );
 }
