@@ -2,25 +2,34 @@
 
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { Fragment } from 'react';
 
+import { Question } from '@/apis/types';
 import { useRangeAtomValue } from '@/stores/rangeAtom';
 
-import { backgroundCircle, container, valueCircle } from './styles.css';
+import { backgroundCircle, container, image, valueCircle } from './styles.css';
 
 type Props = {
+  active: boolean;
   index: number;
   length: number;
+  question: Question;
 };
 
 function getSize(value: number) {
   return 80 * (value - 1);
 }
 
-function Circle({ index, length }: Props) {
+function Circle({ index, length, question, active }: Props) {
   const range = useRangeAtomValue();
   const size = getSize(range);
   const weight = length - index;
   const ratio = weight / length;
+  const {
+    category: { imageUrl, color },
+    title,
+  } = question;
   return (
     <div
       className={classNames(container)}
@@ -36,11 +45,17 @@ function Circle({ index, length }: Props) {
           background: `rgba(255, 255, 255, ${0.7 * ratio})`,
         }}
       />
-      <motion.div
-        initial={false}
-        className={classNames(valueCircle)}
-        animate={{ width: size, height: size }}
-      />
+      {active && (
+        <Fragment>
+          <motion.div
+            initial={false}
+            style={{ background: `#${color}` }}
+            className={classNames(valueCircle)}
+            animate={{ width: size, height: size }}
+          />
+          <Image className={classNames(image)} alt={title} src={imageUrl} />
+        </Fragment>
+      )}
     </div>
   );
 }

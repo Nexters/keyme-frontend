@@ -1,10 +1,17 @@
 import { style } from '@vanilla-extract/css';
 
-import { absolute, absoluteCenter, circle, full } from '@/styles/utils.css';
+import {
+  absolute,
+  absoluteCenter,
+  center,
+  circle,
+  full,
+} from '@/styles/utils.css';
 
 export const container = style([
   full,
   absolute,
+  center,
   {
     maxWidth: 320,
     maxHeight: 320,
@@ -22,10 +29,9 @@ export const backgroundCircle = style([
   },
 ]);
 
-export const valueCircle = style([
-  absoluteCenter,
-  circle,
-  {
-    background: 'green',
-  },
-]);
+export const valueCircle = style([absoluteCenter, circle]);
+
+export const image = style({
+  width: 48,
+  height: 48,
+});

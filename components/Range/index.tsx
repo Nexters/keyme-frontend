@@ -10,7 +10,7 @@ import { useRangeAtom } from '@/stores/rangeAtom';
 import { bubble, container, mark, thumb, track } from './styles.css';
 
 interface Props {
-  color: Question['category']['startColor'];
+  color: Question['category']['color'];
 }
 
 const MIN = 1;

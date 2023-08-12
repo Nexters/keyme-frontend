@@ -1,7 +1,9 @@
 'use client';
 
 import classNames from 'classnames';
+import { Fragment } from 'react';
 
+import { Circle } from '@/components';
 import BackButton from '@/components/BackButton';
 import Button from '@/components/Button';
 import Progress from '@/components/Progress';
@@ -28,10 +30,25 @@ function TestPage({ testId }: Props) {
   }
 
   return (
-    <>
+    <Fragment>
+      {/** 최상단 문제 풀이 진행도 */}
+      <Progress current={currentIndex} total={questions.length} />
+
+      {/** 뒤로가기 버튼 */}
       <BackButton disabled={isFirstQuestion} onClick={decrement} />
 
-      <Progress current={currentIndex} total={questions.length} />
+      {/** 문제풀이 정도를 나타내는 원 */}
+      {questions
+        .slice(currentIndex, currentIndex + 3)
+        .map((question, index) => (
+          <Circle
+            key={question.questionId}
+            active={currentIndex % 3 === index}
+            index={index}
+            length={3}
+            question={question}
+          />
+        ))}
 
       <div className={classNames(bottom)}>
         {/** 질문 텍스트 + 레버 */}
@@ -41,7 +58,7 @@ function TestPage({ testId }: Props) {
           다음
         </Button>
       </div>
-    </>
+    </Fragment>
   );
 }
 

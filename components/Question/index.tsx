@@ -11,12 +11,12 @@ interface Props {
 
 function Question({ question }: Props) {
   const { title, category } = question;
-  const { startColor } = category;
+  const { color } = category;
   return (
     <div className={classNames(container)}>
       <p className={classNames(text)}>{title}</p>
       <hr className={classNames(seperator)} />
-      <Range color={startColor} />
+      <Range color={color} />
     </div>
   );
 }
