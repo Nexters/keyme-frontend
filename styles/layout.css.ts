@@ -1,10 +1,14 @@
 import { style } from '@vanilla-extract/css';
 
-export const container = style({
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-});
+import { center } from './utils.css';
+
+export const container = style([
+  center,
+  {
+    margin: '0 auto',
+    padding: '0 16px',
+    maxWidth: 1024,
+    width: '100%',
+    height: '100%',
+  },
+]);

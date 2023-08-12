@@ -17,6 +17,12 @@ export const absolute = style({
   left: 0,
 });
 
+export const fixed = style({
+  position: 'fixed',
+  top: 0,
+  left: 0,
+});
+
 export const absoluteCenter = style([
   absolute,
   {
