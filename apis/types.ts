@@ -8,8 +8,10 @@ export interface Profile {
 }
 
 export interface Category {
-  /** 카테고리 색상(헥사코드) */
-  color: string;
+  /** 카테고리 그라데이션 시작 색상(헥사코드) */
+  startColor: string;
+  /** 카테고리 그라데이션 끝 색상(헥사코드) */
+  endColor: string;
   /** 카테고리 아이콘 url */
   imageUrl: string;
   /** 카테고리 이름 */
@@ -20,7 +22,7 @@ export interface Question {
   /** 카테고리 정보 */
   category: Category;
   /** 질문 내용 (example: 불의를 보면 참지 않는다) */
-  description: string;
+  title: string;
   /** 질문 내용을 한 단어로 축약 표현 (example: 참군인) */
   keyword: string;
   /**  */
@@ -69,5 +71,5 @@ export interface ApiResponse<T> {
   /** 메시지 (example: SUCCESS) */
   message: string;
   /** HTTP 상태코드 (example: 200) */
-  state: string;
+  code: number;
 }

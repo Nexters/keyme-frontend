@@ -8,6 +8,7 @@ export const container = style([
   fixed,
   {
     top: 12,
+    padding: '0 16px',
     height: 'auto',
     display: 'flex',
   },

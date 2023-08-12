@@ -3,7 +3,6 @@ import { style } from '@vanilla-extract/css';
 export const full = style({
   width: '100%',
   maxWidth: 1024,
-  padding: '0 16px',
 });
 
 export const center = style({

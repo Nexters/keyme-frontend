@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-import { vars } from '@/styles/theme.css';
 import { absolute, absoluteCenter, circle, full } from '@/styles/utils.css';
 
 export const container = style([
@@ -27,6 +26,6 @@ export const valueCircle = style([
   absoluteCenter,
   circle,
   {
-    background: vars.colors.primary,
+    background: 'green',
   },
 ]);
