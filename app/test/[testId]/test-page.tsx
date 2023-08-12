@@ -1,9 +1,11 @@
 'use client';
 
-
+import Button from '@/components/Button';
 import Progress from '@/components/Progress';
 import { useCounter } from '@/hooks/useCounter';
 import { useTestsByIdQuery } from '@/quries/useTestsByIdQuery';
+
+import { buttonContainer } from './style.css';
 
 type Props = {
   testId: number;
@@ -18,9 +20,9 @@ function TestPage({ testId }: Props) {
   return (
     <>
       <Progress current={current} total={questions.length} />
-      <button role='button' onClick={increment}>
-        NEXT
-      </button>
+      <div className={`${buttonContainer}`}>
+        <Button onClick={increment}>다음</Button>
+      </div>
     </>
   );
 }

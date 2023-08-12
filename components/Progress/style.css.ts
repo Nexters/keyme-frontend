@@ -9,7 +9,6 @@ export const container = style([
   {
     top: 12,
     height: 'auto',
-    padding: '0 16px',
     display: 'flex',
   },
 ]);
