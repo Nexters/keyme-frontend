@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Fragment } from 'react';
 
 import { Question } from '@/apis/types';
+import { MIN } from '@/constants/range';
 import { useRangeAtomValue } from '@/stores/rangeAtom';
 
 import { backgroundCircle, container, image, valueCircle } from './styles.css';
@@ -22,7 +23,7 @@ function getSize(value: number) {
 }
 
 function Circle({ index, length, question, active }: Props) {
-  const range = useRangeAtomValue();
+  const range = useRangeAtomValue() ?? MIN;
   const size = getSize(range);
   const weight = length - index;
   const ratio = weight / length;

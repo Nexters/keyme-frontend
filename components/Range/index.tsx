@@ -5,6 +5,7 @@ import { RESET } from 'jotai/utils';
 import { getTrackBackground, Range as BaseRange } from 'react-range';
 
 import { Question } from '@/apis/types';
+import { MAX, MIN, STEP } from '@/constants/range';
 import { useRangeAtom } from '@/stores/rangeAtom';
 
 import { bubble, container, mark, thumb, track } from './styles.css';
@@ -12,10 +13,6 @@ import { bubble, container, mark, thumb, track } from './styles.css';
 interface Props {
   color: Question['category']['color'];
 }
-
-const MIN = 1;
-const MAX = 5;
-const STEP = 1;
 
 const label: Record<number, string> = {
   1: '매우 아니다',
@@ -27,7 +24,8 @@ const label: Record<number, string> = {
 
 function Range({ color }: Props) {
   const [currentRange, setCurrentRange] = useRangeAtom();
-  const values = [currentRange];
+  const safeCurrentRange = currentRange ?? MIN;
+  const values = [safeCurrentRange];
   return (
     <div className={classNames(container)}>
       <BaseRange
@@ -54,7 +52,7 @@ function Range({ color }: Props) {
         )}
         renderThumb={({ props }) => (
           <div {...props} className={classNames(thumb)}>
-            <div className={classNames(bubble)}>{label[currentRange]}</div>
+            <div className={classNames(bubble)}>{label[safeCurrentRange]}</div>
           </div>
         )}
         renderMark={({ props }) => (

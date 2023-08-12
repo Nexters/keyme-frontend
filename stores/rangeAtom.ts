@@ -1,12 +1,12 @@
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 
-const rangeAtom = atomWithReset(1);
+const rangeAtom = atomWithReset<undefined | number>(undefined);
 
 export const useRangeAtom = () => useAtom(rangeAtom);
 
 export const useRangeAtomValue = () => useAtomValue(rangeAtom);
 
-export const useSetRangeAtomValue = () => useSetAtom(rangeAtom);
+export const useSetRangeAtom = () => useSetAtom(rangeAtom);
 
-export const useResetRangeAtomValue = () => useResetAtom(rangeAtom);
+export const useResetRangeAtom = () => useResetAtom(rangeAtom);
