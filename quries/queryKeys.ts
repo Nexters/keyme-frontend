@@ -1,7 +1,13 @@
 import { createQueryKeyStore } from '@lukemorales/query-key-factory';
 
+import { getTestsById } from '@/apis/requesters';
+import { Test } from '@/apis/types';
+
 export const queryKeys = createQueryKeyStore({
-  hello: {
-    all: null,
+  tests: {
+    byId: (testId: Test['testId']) => ({
+      queryKey: [testId],
+      queryFn: () => getTestsById(testId),
+    }),
   },
 });
