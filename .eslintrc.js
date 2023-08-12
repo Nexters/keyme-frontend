@@ -39,7 +39,7 @@ module.exports = {
     'react/jsx-first-prop-new-line': 'error',
     'comma-dangle': ['error', 'always-multiline'],
     eqeqeq: ['warn', 'smart'],
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],
     'eol-last': 'error',
     semi: ['error', 'always'],
