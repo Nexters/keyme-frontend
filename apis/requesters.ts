@@ -11,6 +11,6 @@ export function postSubmitTests(
   body: PostSubmitTestsBody,
 ) {
   return resultify<ApiResponse<TestResult>>(
-    request.post(URLS.submitTests(testId), { body }),
+    request.post(URLS.submitTests(testId), body),
   );
 }
