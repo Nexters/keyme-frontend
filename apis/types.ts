@@ -1,4 +1,4 @@
-export interface OwnerProfile {
+export interface Profile {
   /** */
   memberId: number;
   /** */
@@ -7,28 +7,42 @@ export interface OwnerProfile {
   thumbnailUrl: string;
 }
 
-export interface Rate {
-  /** */
-  averageRate: number;
-  /** */
-  matchRate: number;
+export interface Category {
+  /** 카테고리 색상(헥사코드) */
+  color: string;
+  /** 카테고리 아이콘 url */
+  imageUrl: string;
+  /** 카테고리 이름 */
+  name: string;
+}
+
+export interface Question {
+  /** 카테고리 정보 */
+  category: Category;
+  /** 질문 내용 (example: 불의를 보면 참지 않는다) */
+  description: string;
+  /** 질문 내용을 한 단어로 축약 표현 (example: 참군인) */
+  keyword: string;
+  /**  */
+  questionId: number;
 }
 
 export interface Test {
-  headQuestion: string;
   /** 객체 내 프로필 정보Test 객체 내 프로필 정보 */
-  ownerProfile: OwnerProfile;
-  /** 객체 내 Rate 정보Test 객체 내 Rate 정보 */
-  result: Rate;
+  presenterProfile: Profile;
+  /** Question 정보 응답객체 */
+  questions: Question[];
   /** */
-  solvedMemberCount: number;
+  solvedCount: number;
   /** */
   testId: number;
+  /** */
+  testResultId: number;
+  /** */
+  title: number;
 }
 
 export type TestType = 'MYSOLVED' | 'SOLVED' | 'UNSOLVED';
-
-export type DailyTest = Test;
 
 export interface TestResult {
   /** 테스트 제출자와의 일치율(MMVP에서는 없음) (example: 87.7) */
@@ -40,7 +54,9 @@ export interface TestResult {
 }
 
 export interface QuestionSubmission {
+  /** */
   questionId: number;
+  /** */
   score: number;
 }
 
