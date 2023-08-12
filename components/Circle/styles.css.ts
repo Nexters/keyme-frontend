@@ -13,10 +13,10 @@ export const container = style([
   absolute,
   center,
   {
+    height: '100vw',
     maxWidth: 320,
     maxHeight: 320,
     left: '50%',
-    transform: 'translate3d(-50%, -50%, 0)',
   },
 ]);
 
@@ -25,13 +25,11 @@ export const backgroundCircle = style([
   circle,
   full,
   {
+    height: '100%',
     boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.20)',
   },
 ]);
 
 export const valueCircle = style([absoluteCenter, circle]);
 
-export const image = style({
-  width: 48,
-  height: 48,
-});
+export const image = style([absoluteCenter]);

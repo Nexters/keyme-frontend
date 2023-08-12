@@ -5,6 +5,16 @@ const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: process.env.IMAGE_HOST_NAME,
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 const withVanillaExtract = createVanillaExtractPlugin();
 

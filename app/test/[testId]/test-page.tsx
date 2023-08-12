@@ -57,7 +57,7 @@ function TestPage({ testId }: Props) {
         .map((question, index) => (
           <Circle
             key={question.questionId}
-            active={currentIndex % 3 === index}
+            active={index === 0}
             index={index}
             length={3}
             question={question}

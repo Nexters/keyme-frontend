@@ -51,12 +51,12 @@ function Range({ color }: Props) {
           </div>
         )}
         renderThumb={({ props }) => (
-          <div {...props} className={classNames(thumb)}>
+          <div {...props} key={props.key} className={classNames(thumb)}>
             <div className={classNames(bubble)}>{label[safeCurrentRange]}</div>
           </div>
         )}
         renderMark={({ props }) => (
-          <div {...props} className={classNames(mark)} />
+          <div {...props} key={props.key} className={classNames(mark)} />
         )}
       />
     </div>

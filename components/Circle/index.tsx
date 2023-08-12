@@ -1,7 +1,7 @@
 'use client';
 
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import { Fragment } from 'react';
 
@@ -30,34 +30,45 @@ function Circle({ index, length, question, active }: Props) {
   const {
     category: { imageUrl, color },
     title,
+    questionId,
   } = question;
   return (
-    <div
-      className={classNames(container)}
-      style={{
-        top: `calc(50% - ${25 * weight}px)`,
-        zIndex: weight,
-      }}
-    >
-      <div
-        className={classNames(backgroundCircle)}
-        style={{
-          border: `1px solid rgba(255, 255, 255, ${0.7 * ratio})`,
-          background: `rgba(255, 255, 255, ${0.7 * ratio})`,
-        }}
-      />
-      {active && (
-        <Fragment>
-          <motion.div
-            initial={false}
-            style={{ background: `#${color}` }}
-            className={classNames(valueCircle)}
-            animate={{ width: size, height: size }}
-          />
-          <Image className={classNames(image)} alt={title} src={imageUrl} />
-        </Fragment>
-      )}
-    </div>
+    <AnimatePresence>
+      <motion.div
+        key={questionId}
+        className={classNames(container)}
+        style={{ zIndex: weight }}
+        initial={{ x: '-50%', y: -100 }}
+        animate={{ x: '-50%', y: 85 + 25 * index }}
+        exit={{ x: '-50%', y: 100 }}
+      >
+        <div
+          className={classNames(backgroundCircle)}
+          style={{
+            border: `1px solid rgba(255, 255, 255, ${0.7 * ratio})`,
+            background: `rgba(255, 255, 255, ${0.7 * ratio})`,
+          }}
+        />
+        {active && (
+          <Fragment>
+            <motion.div
+              initial={false}
+              style={{ background: `#${color} ` }}
+              className={classNames(valueCircle)}
+              animate={{ width: size, height: size }}
+              exit={{ top: -100 }}
+            />
+            <Image
+              className={classNames(image)}
+              width={48}
+              height={48}
+              alt={title}
+              src={imageUrl}
+            />
+          </Fragment>
+        )}
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
