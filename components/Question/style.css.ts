@@ -15,6 +15,10 @@ export const container = style([
 export const text = style([
   full,
   {
+    fontSize: 18,
+    lineHeight: '140%',
+    letterSpacing: -0.54,
+    fontWeight: 500,
     padding: '20px 30px 18px 30px',
     color: 'rgba(255, 255, 255, 1)',
   },

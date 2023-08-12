@@ -2,6 +2,7 @@
 
 import classNames from 'classnames';
 
+import BackButton from '@/components/BackButton';
 import Button from '@/components/Button';
 import Progress from '@/components/Progress';
 import Question from '@/components/Question';
@@ -18,8 +19,9 @@ function TestPage({ testId }: Props) {
   const { data: testsByIdQueryResponse } = useTestsByIdQuery(testId);
   const { questions = [] } = testsByIdQueryResponse?.data ?? {};
 
-  const [currentIndex, { increment }] = useCounter();
+  const [currentIndex, { increment, decrement }] = useCounter();
   const currentQuestion = questions[currentIndex];
+  const isFirstQuestion = currentIndex === 0;
 
   if (!currentQuestion) {
     return null;
@@ -27,6 +29,8 @@ function TestPage({ testId }: Props) {
 
   return (
     <>
+      <BackButton disabled={isFirstQuestion} onClick={decrement} />
+
       <Progress current={currentIndex} total={questions.length} />
 
       <div className={classNames(bottom)}>
