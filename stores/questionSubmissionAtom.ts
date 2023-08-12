@@ -3,21 +3,24 @@ import { atomWithReset, useResetAtom } from 'jotai/utils';
 
 import { QuestionSubmission } from '@/apis/types';
 
-const questionsAtom = atomWithReset<QuestionSubmission[]>([]);
+const questionSubmissionAtom = atomWithReset<QuestionSubmission[]>([]);
 
-export const useQuestionsAtom = () => useAtom(questionsAtom);
+export const useQuestionSubmissionAtom = () => useAtom(questionSubmissionAtom);
 
-export const useQuestionsAtomValue = () => useAtomValue(questionsAtom);
+export const useQuestionSubmissionAtomValue = () =>
+  useAtomValue(questionSubmissionAtom);
 
-export const useSetQuestionsAtom = () => useSetAtom(questionsAtom);
+export const useSetQuestionSubmissionAtom = () =>
+  useSetAtom(questionSubmissionAtom);
 
-export const useResetQuestionsAtom = () => useResetAtom(questionsAtom);
+export const useResetQuestionSubmissionAtom = () =>
+  useResetAtom(questionSubmissionAtom);
 
-export const useUpdateQuestionsAtomValueByQuestionId = () => {
-  const setQuestionsAtom = useSetQuestionsAtom();
+export const useUpdateQuestionSubmissionAtomValueByQuestionId = () => {
+  const setQuestionSubmissionAtom = useSetQuestionSubmissionAtom();
 
   return (questionSubmission: QuestionSubmission) =>
-    setQuestionsAtom((prev) => {
+    setQuestionSubmissionAtom((prev) => {
       // UPDATE
       if (
         prev.find(

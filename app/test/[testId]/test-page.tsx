@@ -10,8 +10,12 @@ import Button from '@/components/Button';
 import Progress from '@/components/Progress';
 import Question from '@/components/Question';
 import { useCounter } from '@/hooks/useCounter';
+import { useSubmitTestsMutation } from '@/mutations';
 import { useTestsByIdQuery } from '@/quries/useTestsByIdQuery';
-import { useUpdateQuestionsAtomValueByQuestionId } from '@/stores/questionsAtom';
+import {
+  useQuestionSubmissionAtomValue,
+  useUpdateQuestionSubmissionAtomValueByQuestionId,
+} from '@/stores/questionSubmissionAtom';
 import { useRangeAtom } from '@/stores/rangeAtom';
 
 import { bottom, button } from './style.css';
@@ -22,6 +26,7 @@ type Props = {
 
 function TestPage({ testId }: Props) {
   const { data: testsByIdQueryResponse } = useTestsByIdQuery(testId);
+  const { mutate } = useSubmitTestsMutation(testId);
   const { questions = [] } = testsByIdQueryResponse?.data ?? {};
 
   const [currentIndex, { increment, decrement }] = useCounter();
@@ -30,7 +35,9 @@ function TestPage({ testId }: Props) {
   const isLastQuestion = currentIndex === questions.length - 1;
 
   const [rangeAtomValue, setRangeAtomValue] = useRangeAtom();
-  const updateQuestionsAtom = useUpdateQuestionsAtomValueByQuestionId();
+  const questionSubmission = useQuestionSubmissionAtomValue();
+  const updateQuestionSubmissionAtom =
+    useUpdateQuestionSubmissionAtomValueByQuestionId();
 
   if (!currentQuestion) {
     return null;
@@ -44,7 +51,7 @@ function TestPage({ testId }: Props) {
       {/** 뒤로가기 버튼 */}
       <BackButton disabled={isFirstQuestion} onClick={decrement} />
 
-      {/** 문제풀이 정도를 나타내는 원 */}
+      {/** 문제풀이 정도를 나타내는 원 (최대 3개 노출) */}
       {questions
         .slice(currentIndex, currentIndex + 3)
         .map((question, index) => (
@@ -67,10 +74,18 @@ function TestPage({ testId }: Props) {
           onClick={() => {
             if (isLastQuestion) {
               alert('마지막임');
+              mutate(
+                { results: questionSubmission },
+                {
+                  onSuccess: () => {
+                    alert('성공');
+                  },
+                },
+              );
               return;
             }
             if (rangeAtomValue) {
-              updateQuestionsAtom({
+              updateQuestionSubmissionAtom({
                 questionId: currentQuestion.questionId,
                 score: rangeAtomValue,
               });
