@@ -1,6 +1,7 @@
 'use client';
 
 import { ErrorBoundary } from '@suspensive/react';
+import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
 
 import { container } from '@/styles/layout.css';
@@ -12,7 +13,7 @@ function GlobalErrorBoundary({ children }: Props) {
   return (
     <ErrorBoundary
       resetKeys={[pathname]}
-      fallback={() => <div className={`${container}`}>ERROR</div>}
+      fallback={() => <div className={classNames(container)}>ERROR</div>}
     >
       {children}
     </ErrorBoundary>

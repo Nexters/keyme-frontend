@@ -44,6 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vanilla-extract/css", "npm:1.12.0"],\
             ["@vanilla-extract/next-plugin", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:2.1.3"],\
             ["axios", "npm:1.4.0"],\
+            ["classnames", "npm:2.3.2"],\
             ["eslint", "npm:8.44.0"],\
             ["eslint-config-next", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:13.4.9"],\
             ["eslint-config-prettier", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:8.8.0"],\
@@ -2262,6 +2263,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/chownr-npm-2.0.0-638f1c9c61-c57cf9dd07.zip/node_modules/chownr/",\
           "packageDependencies": [\
             ["chownr", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["classnames", [\
+        ["npm:2.3.2", {\
+          "packageLocation": "./.yarn/cache/classnames-npm-2.3.2-d2fdae468d-2c62199789.zip/node_modules/classnames/",\
+          "packageDependencies": [\
+            ["classnames", "npm:2.3.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4583,6 +4593,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vanilla-extract/css", "npm:1.12.0"],\
             ["@vanilla-extract/next-plugin", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:2.1.3"],\
             ["axios", "npm:1.4.0"],\
+            ["classnames", "npm:2.3.2"],\
             ["eslint", "npm:8.44.0"],\
             ["eslint-config-next", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:13.4.9"],\
             ["eslint-config-prettier", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:8.8.0"],\

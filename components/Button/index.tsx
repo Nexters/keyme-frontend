@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import { container } from './style.css';
 
 function Button(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -5,7 +7,7 @@ function Button(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       role='button'
-      className={`${container} ${className}`}
+      className={classNames(container, className)}
       {...restProps}
     >
       {children}

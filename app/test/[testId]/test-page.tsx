@@ -1,5 +1,7 @@
 'use client';
 
+import classNames from 'classnames';
+
 import Button from '@/components/Button';
 import Progress from '@/components/Progress';
 import { useCounter } from '@/hooks/useCounter';
@@ -20,7 +22,7 @@ function TestPage({ testId }: Props) {
   return (
     <>
       <Progress current={current} total={questions.length} />
-      <div className={`${buttonContainer}`}>
+      <div className={classNames(buttonContainer)}>
         <Button onClick={increment}>다음</Button>
       </div>
     </>

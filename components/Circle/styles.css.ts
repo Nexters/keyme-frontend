@@ -3,18 +3,23 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '@/styles/theme.css';
 import { absolute, absoluteCenter, circle, full } from '@/styles/utils.css';
 
-export const container = style({
-  position: 'relative',
-  width: 250,
-  height: 250,
-});
+export const container = style([
+  full,
+  absolute,
+  {
+    maxWidth: 320,
+    maxHeight: 320,
+    left: '50%',
+    transform: 'translate3d(-50%, -50%, 0)',
+  },
+]);
 
 export const backgroundCircle = style([
   absolute,
   circle,
   full,
   {
-    background: vars.colors.secondary,
+    boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.20)',
   },
 ]);
 

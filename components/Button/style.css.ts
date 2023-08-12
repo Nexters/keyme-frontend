@@ -10,7 +10,7 @@ export const container = style([
     fontSize: 18,
     lineHeight: 1.5,
     letterSpacing: -0.36,
-    fontWeight: 'bold',
+    fontWeight: 700,
     border: 'none',
     background: 'rgba(255, 255, 255, 1)',
     color: 'rgba(0, 0, 0, 1)',

@@ -1,13 +1,13 @@
 import '@/styles/globalStyles.css';
 import '@/styles/theme.css';
 
+import classNames from 'classnames';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
 import { Providers } from '@/contexts';
 import { container } from '@/styles/layout.css';
 
-const inter = Inter({ subsets: ['latin'] });
+import { pretendard } from './font';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,9 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ko'>
-      <body className={`${inter.className}`}>
+      <body className={classNames(pretendard.className)}>
         <Providers>
-          <main className={`${container}`}>{children}</main>
+          <main className={classNames(container)}>{children}</main>
         </Providers>
       </body>
     </html>

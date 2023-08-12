@@ -1,5 +1,7 @@
 'use client';
 
+import classNames from 'classnames';
+
 import { active, bar, container } from './style.css';
 
 interface Props {
@@ -9,9 +11,12 @@ interface Props {
 
 function Progress({ current, total }: Props) {
   return (
-    <ul className={`${container}`}>
+    <ul className={classNames(container)}>
       {new Array(total).fill(0).map((_, index) => (
-        <li className={`${bar} ${current === index && active}`} />
+        <li
+          key={index}
+          className={classNames(bar, current === index && active)}
+        />
       ))}
     </ul>
   );
