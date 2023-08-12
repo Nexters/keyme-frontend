@@ -2,7 +2,7 @@
 
 import { Suspense } from '@suspensive/react';
 
-import TestPage from './test-page';
+import TestPage from './component';
 
 interface Props {
   params: { testId: number };
