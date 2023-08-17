@@ -6,10 +6,16 @@ export const container = style([
   full,
   absoluteCenter,
   {
-    height: '100%',
+    display: 'flex',
     maxWidth: 320,
     maxHeight: 320,
     left: '50%',
+    selectors: {
+      '&::before': {
+        content: '""',
+        paddingTop: '100%',
+      },
+    },
   },
 ]);
 
