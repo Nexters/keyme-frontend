@@ -6,6 +6,7 @@ export const container = style([
   full,
   center,
   {
+    position: 'relative',
     height: '100%',
     flexDirection: 'column',
     color: '#fff',
