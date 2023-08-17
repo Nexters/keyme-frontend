@@ -1,4 +1,4 @@
-type CloseWebview = { command: 'CLOSE_WEBVIEW' };
+type CloseWebview = { command: 'CLOSE_WEBVIEW'; data: string };
 type SendTestResult = { command: 'SEND_TEST_RESULT'; data: string };
 type WebViewCommand = CloseWebview | SendTestResult;
 
@@ -32,7 +32,7 @@ export function sendTestResult(data: string) {
 
 export function closeWebView() {
   if (isIos()) {
-    return sendCommand({ command: 'CLOSE_WEBVIEW' });
+    return sendCommand({ command: 'CLOSE_WEBVIEW', data: 'done' });
   }
 
   if (isAos()) {
