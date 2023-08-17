@@ -10,7 +10,7 @@ interface Props {
 
 function Page({ params }: Props) {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<p>Loading...</p>}>
       <TestPage testId={params.testId} />
     </Suspense>
   );
