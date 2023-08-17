@@ -11,7 +11,7 @@ declare global {
     };
     keymeAndroid?: {
       onTestSolved: (result: string) => unknown;
-      closeWebView: VoidFunction;
+      onCloseClick: VoidFunction;
     };
   }
 }

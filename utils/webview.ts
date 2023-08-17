@@ -36,6 +36,6 @@ export function closeWebView() {
   }
 
   if (isAos()) {
-    return window.keymeAndroid?.closeWebView();
+    return window.keymeAndroid?.onCloseClick();
   }
 }
