@@ -17,6 +17,7 @@ import {
   useUpdateQuestionSubmissionAtomValueByQuestionId,
 } from '@/stores/questionSubmissionAtom';
 import { useRangeAtom } from '@/stores/rangeAtom';
+import { sendTestResult } from '@/utils/webview';
 
 import { bottom, button } from './style.css';
 
@@ -73,12 +74,14 @@ function TestPage({ testId }: Props) {
           className={classNames(button)}
           onClick={() => {
             if (isLastQuestion) {
-              alert('마지막임');
               mutate(
                 { results: questionSubmission },
                 {
-                  onSuccess: () => {
-                    alert('성공');
+                  onSuccess: (result) => {
+                    const resultCode = result.data.resultCode;
+                    if (resultCode) {
+                      sendTestResult(resultCode);
+                    }
                   },
                 },
               );
