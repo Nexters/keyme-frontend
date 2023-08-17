@@ -33,4 +33,7 @@ export const backgroundCircle = style([
   },
 ]);
 
-export const image = style([absoluteCenter]);
+export const imageContainer = style([
+  absoluteCenter,
+  { width: 48, height: 48 },
+]);

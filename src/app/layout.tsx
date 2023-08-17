@@ -3,6 +3,7 @@ import '@/styles/theme.css';
 
 import classNames from 'classnames';
 import type { Metadata } from 'next';
+import React from 'react';
 
 import { Providers } from '@/contexts';
 import { container } from '@/styles/layout.css';
@@ -14,11 +15,7 @@ export const metadata: Metadata = {
   description: 'T나 F보다 중요한 건 U',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang='ko'>
       <link rel='icon' href='/favicon.ico' sizes='any' />

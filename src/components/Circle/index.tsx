@@ -8,7 +8,12 @@ import { Fragment } from 'react';
 import { Question } from '@/apis/types';
 import { useRangeAtomValue } from '@/stores/rangeAtom';
 
-import { backgroundCircle, container, image, valueCircle } from './styles.css';
+import {
+  backgroundCircle,
+  container,
+  imageContainer,
+  valueCircle,
+} from './styles.css';
 
 type Props = {
   active: boolean;
@@ -52,13 +57,14 @@ function Circle({ index, length, question, active }: Props) {
               animate={{ transform: `scale(${range / 5})` }}
               exit={{ top: -100 }}
             />
-            <Image
-              className={classNames(image)}
-              width={48}
-              height={48}
-              alt={title}
-              src={iconUrl}
-            />
+            <div className={classNames(imageContainer)}>
+              <Image
+                layout='fill'
+                objectFit='contain'
+                alt={title}
+                src={iconUrl}
+              />
+            </div>
           </Fragment>
         )}
       </motion.div>
