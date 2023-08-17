@@ -3,10 +3,15 @@ export {};
 declare global {
   interface Window {
     webkit?: {
-      messageHandlers: any;
+      messageHandlers: {
+        appInterface?: {
+          postMessage: (command: Record<string, unknown>) => unknown;
+        };
+      };
     };
     android?: {
-      onTestSolved?: (result: string) => void;
+      onTestSolved: (result: string) => unknown;
+      closeWebView: VoidFunction;
     };
   }
 }

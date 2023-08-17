@@ -1,3 +1,13 @@
+type CloseWebview = { command: 'CLOSE_WEBVIEW' };
+type SendTestResult = { command: 'SEND_TEST_RESULT'; data: string };
+type WebViewCommand = CloseWebview | SendTestResult;
+
+export function sendCommand(webViewCommand: WebViewCommand) {
+  return window?.webkit?.messageHandlers?.appInterface?.postMessage(
+    webViewCommand,
+  );
+}
+
 function isBrowser() {
   return typeof window !== 'undefined';
 }
@@ -10,13 +20,22 @@ function isAos() {
   return isBrowser() && !!window.android;
 }
 
-export function sendTestResult(result: string) {
+export function sendTestResult(data: string) {
   if (isIos()) {
-    return;
+    return sendCommand({ command: 'SEND_TEST_RESULT', data });
   }
 
   if (isAos()) {
-    window.android?.onTestSolved?.(result);
-    return;
+    return window.android?.onTestSolved(data);
+  }
+}
+
+export function closeWebView() {
+  if (isIos()) {
+    return sendCommand({ command: 'CLOSE_WEBVIEW' });
+  }
+
+  if (isAos()) {
+    return window.android?.closeWebView();
   }
 }

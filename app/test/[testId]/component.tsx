@@ -17,7 +17,7 @@ import {
   useUpdateQuestionSubmissionAtomValueByQuestionId,
 } from '@/stores/questionSubmissionAtom';
 import { useRangeAtom } from '@/stores/rangeAtom';
-import { sendTestResult } from '@/utils/webview';
+import { closeWebView, sendTestResult } from '@/utils/webview';
 
 import { bottom, button } from './style.css';
 
@@ -50,7 +50,15 @@ function TestPage({ testId }: Props) {
       <Progress current={currentIndex} total={questions.length} />
 
       {/** 뒤로가기 버튼 */}
-      <BackButton disabled={isFirstQuestion} onClick={decrement} />
+      <BackButton
+        onClick={() => {
+          if (isFirstQuestion) {
+            closeWebView();
+            return;
+          }
+          decrement();
+        }}
+      />
 
       {/** 문제풀이 정도를 나타내는 원 (최대 3개 노출) */}
       {questions
