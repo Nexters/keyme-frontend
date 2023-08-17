@@ -1,14 +1,28 @@
 import { style } from '@vanilla-extract/css';
 
-import { fixed, full } from '@/styles/utils.css';
+import { full } from '@/styles/utils.css';
 
-export const bottom = style([
-  fixed,
+export const container = style([
   full,
   {
-    top: 'unset',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    paddingBottom: 20,
+  },
+]);
+
+export const top = style({
+  position: 'relative',
+  flex: 1,
+  overflow: 'hidden',
+});
+
+export const bottom = style([
+  full,
+  {
+    marginTop: 'auto',
     padding: '0 16px',
-    bottom: 20,
   },
 ]);
 

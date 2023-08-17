@@ -1,20 +1,12 @@
 import { style } from '@vanilla-extract/css';
 
-import {
-  absolute,
-  absoluteCenter,
-  center,
-  circle,
-  full,
-} from '@/styles/utils.css';
+import { absolute, absoluteCenter, circle, full } from '@/styles/utils.css';
 
 export const container = style([
   full,
-  absolute,
-  center,
+  absoluteCenter,
   {
-    width: 'calc(100vw - 56px)',
-    aspectRatio: '1 / 1',
+    height: '100%',
     maxWidth: 320,
     maxHeight: 320,
     left: '50%',

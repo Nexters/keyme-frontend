@@ -32,9 +32,9 @@ function Circle({ index, length, question, active }: Props) {
         key={questionId}
         className={classNames(container)}
         style={{ zIndex: weight }}
-        initial={{ x: '-50%', y: -100 }}
-        animate={{ x: '-50%', y: 85 + 25 * index }}
-        exit={{ x: '-50%', y: 100 }}
+        initial={{ x: '-50%', y: '-30%' }}
+        animate={{ x: '-50%', y: `calc(-50% + ${25 * index}px)` }}
+        exit={{ x: '-50%', y: '30%' }}
       >
         <div
           className={classNames(backgroundCircle)}
