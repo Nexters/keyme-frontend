@@ -15,7 +15,7 @@ function Progress({ current, total }: Props) {
       {new Array(total).fill(0).map((_, index) => (
         <li
           key={index}
-          className={classNames(bar, current === index && active)}
+          className={classNames(bar, index <= current && active)}
         />
       ))}
     </ul>
