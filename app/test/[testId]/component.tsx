@@ -78,9 +78,9 @@ function TestPage({ testId }: Props) {
                   { results: questionSubmission },
                   {
                     onSuccess: (result) => {
-                      const resultCode = result.data.resultCode;
-                      if (resultCode) {
-                        sendTestResult(resultCode);
+                      const testResultId = result.data.testResultId;
+                      if (testResultId) {
+                        sendTestResult(testResultId);
                       }
                     },
                   },

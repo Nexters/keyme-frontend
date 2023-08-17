@@ -1,5 +1,5 @@
 type CloseWebview = { command: 'CLOSE_WEBVIEW'; data: string };
-type SendTestResult = { command: 'SEND_TEST_RESULT'; data: string };
+type SendTestResult = { command: 'SEND_TEST_RESULT'; data: number };
 type WebViewCommand = CloseWebview | SendTestResult;
 
 export function sendCommand(webViewCommand: WebViewCommand) {
@@ -20,7 +20,7 @@ function isAos() {
   return isBrowser() && !!window.keymeAndroid;
 }
 
-export function sendTestResult(data: string) {
+export function sendTestResult(data: number) {
   if (isIos()) {
     return sendCommand({ command: 'SEND_TEST_RESULT', data });
   }
