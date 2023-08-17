@@ -21,21 +21,21 @@ function isAos() {
 }
 
 export function sendTestResult(data: number) {
-  if (isIos()) {
-    return sendCommand({ command: 'SEND_TEST_RESULT', data });
-  }
-
   if (isAos()) {
     return window.keymeAndroid?.onTestSolved(data);
+  }
+
+  if (isIos()) {
+    return sendCommand({ command: 'SEND_TEST_RESULT', data });
   }
 }
 
 export function closeWebView() {
-  if (isIos()) {
-    return sendCommand({ command: 'CLOSE_WEBVIEW', data: 'done' });
-  }
-
   if (isAos()) {
     return window.keymeAndroid?.onCloseClick();
+  }
+
+  if (isIos()) {
+    return sendCommand({ command: 'CLOSE_WEBVIEW', data: 'done' });
   }
 }
