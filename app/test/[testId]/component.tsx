@@ -49,17 +49,6 @@ function TestPage({ testId }: Props) {
       {/** 최상단 문제 풀이 진행도 */}
       <Progress current={currentIndex} total={questions.length} />
 
-      {/** 뒤로가기 버튼 */}
-      <BackButton
-        onClick={() => {
-          if (isFirstQuestion) {
-            closeWebView();
-            return;
-          }
-          decrement();
-        }}
-      />
-
       <div className={classNames(container)}>
         <div className={classNames(top)}>
           {/** 문제풀이 정도를 나타내는 원 (최대 3개 노출) */}
@@ -112,6 +101,17 @@ function TestPage({ testId }: Props) {
           </Button>
         </div>
       </div>
+
+      {/** 뒤로가기 버튼 */}
+      <BackButton
+        onClick={() => {
+          if (isFirstQuestion) {
+            closeWebView();
+            return;
+          }
+          decrement();
+        }}
+      />
     </Fragment>
   );
 }
