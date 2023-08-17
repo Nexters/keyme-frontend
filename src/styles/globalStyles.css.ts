@@ -6,7 +6,6 @@ globalStyle('*', {
   font: 'inherit',
   color: 'inherit',
   boxSizing: 'border-box',
-  wordBreak: 'keep-all',
   padding: 0,
   margin: 0,
 });
