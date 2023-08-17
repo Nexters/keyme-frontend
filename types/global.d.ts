@@ -9,7 +9,7 @@ declare global {
         };
       };
     };
-    android?: {
+    keymeAndroid?: {
       onTestSolved: (result: string) => unknown;
       closeWebView: VoidFunction;
     };

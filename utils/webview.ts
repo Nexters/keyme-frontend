@@ -17,7 +17,7 @@ function isIos() {
 }
 
 function isAos() {
-  return isBrowser() && !!window.android;
+  return isBrowser() && !!window.keymeAndroid;
 }
 
 export function sendTestResult(data: string) {
@@ -26,7 +26,7 @@ export function sendTestResult(data: string) {
   }
 
   if (isAos()) {
-    return window.android?.onTestSolved(data);
+    return window.keymeAndroid?.onTestSolved(data);
   }
 }
 
@@ -36,6 +36,6 @@ export function closeWebView() {
   }
 
   if (isAos()) {
-    return window.android?.closeWebView();
+    return window.keymeAndroid?.closeWebView();
   }
 }
