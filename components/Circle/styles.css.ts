@@ -13,23 +13,26 @@ export const container = style([
   absolute,
   center,
   {
-    height: '100vw',
+    width: 'calc(100vw - 56px)',
+    aspectRatio: '1 / 1',
     maxWidth: 320,
     maxHeight: 320,
     left: '50%',
   },
 ]);
 
-export const backgroundCircle = style([
+export const valueCircle = style([
   absolute,
   circle,
   full,
+  { left: 0, top: 0, height: '100%' },
+]);
+
+export const backgroundCircle = style([
+  valueCircle,
   {
-    height: '100%',
     boxShadow: '0px 10px 30px 0px rgba(0, 0, 0, 0.20)',
   },
 ]);
-
-export const valueCircle = style([absoluteCenter, circle]);
 
 export const image = style([absoluteCenter]);
