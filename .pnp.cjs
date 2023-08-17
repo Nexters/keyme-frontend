@@ -28,8 +28,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@effect/data", "npm:0.14.1"],\
-            ["@effect/io", "npm:0.32.1"],\
             ["@lukemorales/query-key-factory", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:1.3.2"],\
             ["@suspensive/react", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:1.11.3"],\
             ["@tanstack/query-core", "npm:4.32.6"],\
@@ -401,25 +399,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/helper-string-parser", "npm:7.22.5"],\
             ["@babel/helper-validator-identifier", "npm:7.22.5"],\
             ["to-fast-properties", "npm:2.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@effect/data", [\
-        ["npm:0.14.1", {\
-          "packageLocation": "./.yarn/cache/@effect-data-npm-0.14.1-5b2af7086a-db6400c48c.zip/node_modules/@effect/data/",\
-          "packageDependencies": [\
-            ["@effect/data", "npm:0.14.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@effect/io", [\
-        ["npm:0.32.1", {\
-          "packageLocation": "./.yarn/cache/@effect-io-npm-0.32.1-71c6520708-40671894fe.zip/node_modules/@effect/io/",\
-          "packageDependencies": [\
-            ["@effect/io", "npm:0.32.1"],\
-            ["@effect/data", "npm:0.14.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4577,8 +4556,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["keyme", "workspace:."],\
-            ["@effect/data", "npm:0.14.1"],\
-            ["@effect/io", "npm:0.32.1"],\
             ["@lukemorales/query-key-factory", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:1.3.2"],\
             ["@suspensive/react", "virtual:d76264851e5b094321a276ced02144657c2a2451ee28d2caaf74b8f4479c8df0227e504a54e9773f15a6173267f646d7905b75a2cc8762e1747bcef8d1159930#npm:1.11.3"],\
             ["@tanstack/query-core", "npm:4.32.6"],\
