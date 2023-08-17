@@ -11,7 +11,7 @@ export interface Category {
   /** 카테고리 색상(헥사코드) */
   color: string;
   /** 카테고리 아이콘 url */
-  imageUrl: string;
+  iconUrl: string;
   /** 카테고리 이름 */
   name: string;
 }

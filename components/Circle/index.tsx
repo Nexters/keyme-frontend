@@ -28,7 +28,7 @@ function Circle({ index, length, question, active }: Props) {
   const weight = length - index;
   const ratio = weight / length;
   const {
-    category: { imageUrl, color },
+    category: { iconUrl, color },
     title,
     questionId,
   } = question;
@@ -63,7 +63,7 @@ function Circle({ index, length, question, active }: Props) {
               width={48}
               height={48}
               alt={title}
-              src={imageUrl}
+              src={iconUrl}
             />
           </Fragment>
         )}
