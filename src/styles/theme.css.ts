@@ -10,11 +10,11 @@ const colors = createThemeContract({
 });
 
 export const lightTheme = createTheme(colors, {
-  background: '#000000',
+  background: '#171717',
 });
 
 export const darkTheme = createTheme(colors, {
-  background: '#000000',
+  background: '#171717',
 });
 
 export const root = createGlobalThemeContract({
