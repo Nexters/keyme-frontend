@@ -3,7 +3,7 @@
 import classNames from 'classnames';
 import { RESET } from 'jotai/utils';
 import { useRouter } from 'next/navigation';
-import QueryString from 'qs';
+import { stringify } from 'qs';
 import { Fragment } from 'react';
 
 import { BackButton, Button, Circle, Progress, Question } from '@/components';
@@ -58,7 +58,7 @@ function TestPage({ testId }: Props) {
             if (isWebView()) {
               return sendTestResult(data);
             }
-            const search = QueryString.stringify({
+            const search = stringify({
               nickname,
               code: data.resultCode,
             });

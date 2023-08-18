@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import * as CopyToClipboard from 'react-copy-to-clipboard';
 
 import { CopyIcon } from '@/components/Icon';
 
@@ -13,22 +13,22 @@ interface Props
 function CopyButton(props: Props) {
   const { code, className, onClick, ...restProps } = props;
   return (
-    <CopyToClipboard text={code}>
-      <button
-        role='button'
-        className={classNames(container, className)}
-        onClick={(event) => {
-          onClick?.(event);
-        }}
-        {...restProps}
-      >
+    <button
+      role='button'
+      className={classNames(container, className)}
+      onClick={(event) => {
+        onClick?.(event);
+      }}
+      {...restProps}
+    >
+      <CopyToClipboard text={code}>
         <span>결과 코드 복사하기</span>
         <span className={classNames(codeText)}>
           {code}
           <CopyIcon className={classNames(copyIcon)} />
         </span>
-      </button>
-    </CopyToClipboard>
+      </CopyToClipboard>
+    </button>
   );
 }
 
