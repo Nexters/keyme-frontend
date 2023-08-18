@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { CopyIcon } from '@/components/Icon';
 
