@@ -1004,6 +1004,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/qs@npm:^6":
+  version: 6.9.7
+  resolution: "@types/qs@npm:6.9.7"
+  checksum: 7fd6f9c25053e9b5bb6bc9f9f76c1d89e6c04f7707a7ba0e44cc01f17ef5284adb82f230f542c2d5557d69407c9a40f0f3515e8319afd14e1e16b5543ac6cdba
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:18.2.6":
   version: 18.2.6
   resolution: "@types/react-dom@npm:18.2.6"
@@ -3713,6 +3720,7 @@ __metadata:
     "@tanstack/react-query-devtools": ^4.32.6
     "@tanstack/react-query-next-experimental": ^5.0.0-alpha.80
     "@types/node": 20.4.1
+    "@types/qs": ^6
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
     "@typescript-eslint/eslint-plugin": ^5.61.0
@@ -3737,6 +3745,7 @@ __metadata:
     next-themes: ^0.2.1
     pinst: ^3.0.0
     prettier: ^2.8.8
+    qs: ^6.11.2
     react: 18.2.0
     react-dom: 18.2.0
     react-range: ^1.8.14
@@ -4660,6 +4669,15 @@ __metadata:
   version: 2.3.0
   resolution: "punycode@npm:2.3.0"
   checksum: 39f760e09a2a3bbfe8f5287cf733ecdad69d6af2fe6f97ca95f24b8921858b91e9ea3c9eeec6e08cede96181b3bb33f95c6ffd8c77e63986508aa2e8159fa200
+  languageName: node
+  linkType: hard
+
+"qs@npm:^6.11.2":
+  version: 6.11.2
+  resolution: "qs@npm:6.11.2"
+  dependencies:
+    side-channel: ^1.0.4
+  checksum: e812f3c590b2262548647d62f1637b6989cc56656dc960b893fe2098d96e1bd633f36576f4cd7564dfbff9db42e17775884db96d846bebe4f37420d073ecdc0b
   languageName: node
   linkType: hard
 

@@ -2,6 +2,8 @@
 
 import classNames from 'classnames';
 import { RESET } from 'jotai/utils';
+import { useRouter } from 'next/navigation';
+import QueryString from 'qs';
 import { Fragment } from 'react';
 
 import { Circle } from '@/components';
@@ -9,6 +11,7 @@ import BackButton from '@/components/BackButton';
 import Button from '@/components/Button';
 import Progress from '@/components/Progress';
 import Question from '@/components/Question';
+import { PAGE_URLS } from '@/constants/urls';
 import { useCounter } from '@/hooks/useCounter';
 import { useSubmitTestsMutation } from '@/mutations';
 import { useTestsByIdQuery } from '@/quries/useTestsByIdQuery';
@@ -17,7 +20,7 @@ import {
   useUpdateQuestionSubmissionAtomValueByQuestionId,
 } from '@/stores/questionSubmissionAtom';
 import { useRangeAtom } from '@/stores/rangeAtom';
-import { closeWebView, sendTestResult } from '@/utils/webview';
+import { closeWebView, isWebView, sendTestResult } from '@/utils/webview';
 
 import { bottom, button, container, top } from './style.css';
 
@@ -26,9 +29,11 @@ type Props = {
 };
 
 function TestPage({ testId }: Props) {
+  const router = useRouter();
   const { data: testsByIdQueryResponse } = useTestsByIdQuery(testId);
   const { mutate } = useSubmitTestsMutation(testId);
-  const { questions = [] } = testsByIdQueryResponse?.data ?? {};
+  const { questions = [], owner } = testsByIdQueryResponse?.data ?? {};
+  const { nickname = '' } = owner ?? {};
 
   const [currentIndex, { increment, decrement }] = useCounter();
   const currentQuestion = questions[currentIndex];
@@ -39,6 +44,43 @@ function TestPage({ testId }: Props) {
   const questionSubmission = useQuestionSubmissionAtomValue();
   const updateQuestionSubmissionAtom =
     useUpdateQuestionSubmissionAtomValueByQuestionId();
+
+  const handleClickBackButton = () => {
+    if (isFirstQuestion) {
+      closeWebView();
+      return;
+    }
+    decrement();
+  };
+
+  const handleClickNextButton = () => {
+    if (isLastQuestion) {
+      mutate(
+        { results: questionSubmission },
+        {
+          onSuccess: ({ data }) => {
+            if (isWebView()) {
+              return sendTestResult(data);
+            }
+            const search = QueryString.stringify({
+              nickname,
+              code: data.resultCode,
+            });
+            router.push(PAGE_URLS.TEST_RESULT + '?' + search);
+          },
+        },
+      );
+      return;
+    }
+    if (rangeAtomValue) {
+      updateQuestionSubmissionAtom({
+        questionId: currentQuestion.questionId,
+        score: rangeAtomValue,
+      });
+      setRangeAtomValue(RESET);
+      increment();
+    }
+  };
 
   if (!currentQuestion) {
     return null;
@@ -67,35 +109,12 @@ function TestPage({ testId }: Props) {
 
         <div className={classNames(bottom)}>
           {/** 질문 텍스트 + 레버 */}
-          <Question question={currentQuestion} />
+          <Question question={currentQuestion} nickname={nickname} />
           {/** 하단 다음 버튼 */}
           <Button
             disabled={rangeAtomValue === undefined}
             className={classNames(button)}
-            onClick={() => {
-              if (isLastQuestion) {
-                mutate(
-                  { results: questionSubmission },
-                  {
-                    onSuccess: (result) => {
-                      const testResultId = result.data.testResultId;
-                      if (testResultId) {
-                        sendTestResult(testResultId);
-                      }
-                    },
-                  },
-                );
-                return;
-              }
-              if (rangeAtomValue) {
-                updateQuestionSubmissionAtom({
-                  questionId: currentQuestion.questionId,
-                  score: rangeAtomValue,
-                });
-                setRangeAtomValue(RESET);
-                increment();
-              }
-            }}
+            onClick={handleClickNextButton}
           >
             다음
           </Button>
@@ -103,15 +122,7 @@ function TestPage({ testId }: Props) {
       </div>
 
       {/** 뒤로가기 버튼 */}
-      <BackButton
-        onClick={() => {
-          if (isFirstQuestion) {
-            closeWebView();
-            return;
-          }
-          decrement();
-        }}
-      />
+      <BackButton onClick={handleClickBackButton} />
     </Fragment>
   );
 }

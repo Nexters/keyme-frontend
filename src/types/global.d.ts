@@ -5,13 +5,13 @@ declare global {
     webkit?: {
       messageHandlers: {
         appInterface?: {
-          postMessage: (command: Record<string, unknown>) => unknown;
+          postMessage: (parameter?: unknown) => void;
         };
       };
     };
     keymeAndroid?: {
-      onTestSolved: (result: number) => unknown;
-      onCloseClick: VoidFunction;
+      onTestSolved: (parms?: unknown) => void;
+      onCloseClick: (params?: unknown) => void;
     };
   }
 }

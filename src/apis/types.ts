@@ -29,7 +29,7 @@ export interface Question {
 
 export interface Test {
   /** 객체 내 프로필 정보Test 객체 내 프로필 정보 */
-  presenterProfile: Profile;
+  owner: Profile;
   /** Question 정보 응답객체 */
   questions: Question[];
   /** */

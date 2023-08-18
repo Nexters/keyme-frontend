@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { useSearchParams } from 'next/navigation';
 
 import { Question } from '@/apis/types';
 import Range from '@/components/Range';
@@ -8,11 +7,10 @@ import { container, seperator, text } from './style.css';
 
 interface Props {
   question: Question;
+  nickname: string;
 }
 
-function Question({ question }: Props) {
-  const searchParams = useSearchParams();
-  const nickname = searchParams.get('nickname') ?? '';
+function Question({ question, nickname }: Props) {
   const { title, category, questionId } = question;
   const { color } = category;
   return (

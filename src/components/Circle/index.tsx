@@ -61,6 +61,7 @@ function Circle({ index, length, question, active }: Props) {
               <Image
                 layout='fill'
                 objectFit='contain'
+                sizes='48px'
                 alt={title}
                 src={iconUrl}
               />

@@ -1,5 +1,7 @@
+import { TestResult } from '@/apis/types';
+
 type CloseWebview = { command: 'CLOSE_WEBVIEW'; data: string };
-type SendTestResult = { command: 'SEND_TEST_RESULT'; data: number };
+type SendTestResult = { command: 'SEND_TEST_RESULT'; data: TestResult };
 type WebViewCommand = CloseWebview | SendTestResult;
 
 export function sendCommand(webViewCommand: WebViewCommand) {
@@ -20,7 +22,7 @@ function isAos() {
   return isBrowser() && !!window.keymeAndroid;
 }
 
-export function sendTestResult(data: number) {
+export function sendTestResult(data: TestResult) {
   if (isAos()) {
     return window.keymeAndroid?.onTestSolved(data);
   }
@@ -38,4 +40,10 @@ export function closeWebView() {
   if (isIos()) {
     return sendCommand({ command: 'CLOSE_WEBVIEW', data: 'done' });
   }
+}
+
+export function isWebView() {
+  return (
+    isBrowser() && window.navigator.userAgent.toLowerCase().includes('keyme')
+  );
 }
