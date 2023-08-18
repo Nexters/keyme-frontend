@@ -24,7 +24,7 @@ function isAos() {
 
 export function sendTestResult(data: TestResult) {
   if (isAos()) {
-    return window.keymeAndroid?.onTestSolved(data);
+    return window.keymeAndroid?.onTestSolved(JSON.stringify(data));
   }
 
   if (isIos()) {

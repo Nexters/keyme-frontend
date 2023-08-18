@@ -6,13 +6,17 @@ import Image from 'next/image';
 import { Fragment, useEffect } from 'react';
 
 import { Question } from '@/apis/types';
+import { panchang } from '@/app/font';
 import { useRangeAtomValue } from '@/stores/rangeAtom';
 import { preload } from '@/utils/image';
 
 import {
   backgroundCircle,
   container,
+  iconContainer,
   imageContainer,
+  label,
+  questionMark,
   valueCircle,
 } from './styles.css';
 
@@ -21,14 +25,23 @@ type Props = {
   index: number;
   length: number;
   question: Question;
+  defaultvalue?: number;
+  useLabel?: boolean;
 };
 
-function Circle({ index, length, question, active }: Props) {
-  const range = useRangeAtomValue() ?? 0;
+function Circle({
+  index,
+  length,
+  question,
+  active,
+  defaultvalue = 0,
+  useLabel = false,
+}: Props) {
+  const range = useRangeAtomValue() ?? defaultvalue;
   const weight = length - index;
   const ratio = weight / length;
   const {
-    category: { iconUrl, color },
+    category: { iconUrl, color, name },
     title,
     questionId,
   } = question;
@@ -63,8 +76,26 @@ function Circle({ index, length, question, active }: Props) {
               animate={{ transform: `scale(${range / 5})` }}
               exit={{ top: -100 }}
             />
-            <div className={classNames(imageContainer)}>
-              <Image fill quality={80} sizes='48px' alt={title} src={iconUrl} />
+            <div className={classNames(iconContainer)}>
+              <div className={classNames(imageContainer)}>
+                <Image
+                  fill
+                  quality={80}
+                  sizes='48px'
+                  alt={title}
+                  src={iconUrl}
+                />
+              </div>
+              {useLabel && (
+                <p className={classNames(label)}>
+                  {name}
+                  <span
+                    className={classNames(panchang.className, questionMark)}
+                  >
+                    ?
+                  </span>
+                </p>
+              )}
             </div>
           </Fragment>
         )}

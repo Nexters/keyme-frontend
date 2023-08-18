@@ -10,8 +10,8 @@ declare global {
       };
     };
     keymeAndroid?: {
-      onTestSolved: (parms?: unknown) => void;
-      onCloseClick: (params?: unknown) => void;
+      onTestSolved: (parameter?: string) => void;
+      onCloseClick: (parameter?: string) => void;
     };
   }
 }

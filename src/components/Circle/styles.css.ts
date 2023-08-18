@@ -1,6 +1,12 @@
 import { style } from '@vanilla-extract/css';
 
-import { absolute, absoluteCenter, circle, full } from '@/styles/utils.css';
+import {
+  absolute,
+  absoluteCenter,
+  center,
+  circle,
+  full,
+} from '@/styles/utils.css';
 
 export const container = style([
   full,
@@ -33,7 +39,32 @@ export const backgroundCircle = style([
   },
 ]);
 
-export const imageContainer = style([
+export const iconContainer = style([
   absoluteCenter,
-  { width: 48, height: 48 },
+  center,
+  {
+    flexDirection: 'column',
+  },
 ]);
+
+export const imageContainer = style({
+  position: 'relative',
+  width: 48,
+  height: 48,
+});
+
+export const label = style({
+  marginTop: 10,
+  fontSize: 16,
+  fontWeight: 600,
+  lineHeight: '140%',
+  letterSpacing: -0.48,
+});
+
+export const questionMark = style({
+  display: 'block',
+  textAlign: 'center',
+  fontSize: 18,
+  fontWeight: 800,
+  lineHeight: '120%',
+});
