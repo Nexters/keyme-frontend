@@ -1,12 +1,15 @@
 import { style } from '@vanilla-extract/css';
 
-import { center, full } from '@/styles/utils.css';
+import { fixed, full } from '@/styles/utils.css';
 
 export const container = style([
   full,
-  center,
+  fixed,
   {
-    marginTop: 12,
+    top: 12,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    padding: '0 16px',
     height: 'auto',
     display: 'flex',
   },
