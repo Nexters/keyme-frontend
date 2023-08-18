@@ -23,4 +23,5 @@ export const pretendard = localFont({
       style: 'normal',
     },
   ],
+  preload: true,
 });

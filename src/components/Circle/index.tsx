@@ -3,10 +3,11 @@
 import classNames from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 
 import { Question } from '@/apis/types';
 import { useRangeAtomValue } from '@/stores/rangeAtom';
+import { preload } from '@/utils/image';
 
 import {
   backgroundCircle,
@@ -31,6 +32,11 @@ function Circle({ index, length, question, active }: Props) {
     title,
     questionId,
   } = question;
+
+  useEffect(() => {
+    preload(iconUrl);
+  }, [iconUrl]);
+
   return (
     <AnimatePresence>
       <motion.div
@@ -58,13 +64,7 @@ function Circle({ index, length, question, active }: Props) {
               exit={{ top: -100 }}
             />
             <div className={classNames(imageContainer)}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                sizes='48px'
-                alt={title}
-                src={iconUrl}
-              />
+              <Image fill quality={80} sizes='48px' alt={title} src={iconUrl} />
             </div>
           </Fragment>
         )}
