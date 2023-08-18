@@ -2,9 +2,7 @@ import classNames from 'classnames';
 import { useSearchParams } from 'next/navigation';
 import { Fragment } from 'react';
 
-import { Circle } from '@/components';
-import Button from '@/components/Button';
-import CopyButton from '@/components/CopyButton';
+import { Button, Circle, CopyButton } from '@/components';
 
 import { circleContainer, copyButton, title } from './style.css';
 

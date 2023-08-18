@@ -6,15 +6,11 @@ import { useRouter } from 'next/navigation';
 import QueryString from 'qs';
 import { Fragment } from 'react';
 
-import { Circle } from '@/components';
-import BackButton from '@/components/BackButton';
-import Button from '@/components/Button';
-import Progress from '@/components/Progress';
-import Question from '@/components/Question';
+import { BackButton, Button, Circle, Progress, Question } from '@/components';
 import { PAGE_URLS } from '@/constants/urls';
-import { useCounter } from '@/hooks/useCounter';
+import { useCounter } from '@/hooks';
 import { useSubmitTestsMutation } from '@/mutations';
-import { useTestsByIdQuery } from '@/quries/useTestsByIdQuery';
+import { useTestsByIdQuery } from '@/quries';
 import {
   useQuestionSubmissionAtomValue,
   useUpdateQuestionSubmissionAtomValueByQuestionId,

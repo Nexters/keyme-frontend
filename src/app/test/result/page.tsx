@@ -2,11 +2,13 @@
 
 import { Suspense } from '@suspensive/react';
 
+import { Loader } from '@/components';
+
 import ResultPage from './component';
 
 function Page() {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<Loader />}>
       <ResultPage />
     </Suspense>
   );

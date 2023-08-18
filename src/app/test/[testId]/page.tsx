@@ -2,6 +2,8 @@
 
 import { Suspense } from '@suspensive/react';
 
+import { Loader } from '@/components';
+
 import TestPage from './component';
 
 interface Props {
@@ -10,7 +12,7 @@ interface Props {
 
 function Page({ params }: Props) {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<Loader />}>
       <TestPage testId={params.testId} />
     </Suspense>
   );

@@ -39,4 +39,4 @@ function CopyIcon(props: React.HTMLAttributes<HTMLOrSVGElement>) {
   );
 }
 
-export default CopyIcon;
+export { CopyIcon };

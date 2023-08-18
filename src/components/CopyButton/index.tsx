@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
-import CopyIcon from '../Icon/copy';
+import { CopyIcon } from '@/components/Icon';
+
 import { codeText, container, copyIcon } from './style.css';
 
 interface Props
