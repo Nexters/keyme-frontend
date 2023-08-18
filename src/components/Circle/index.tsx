@@ -60,7 +60,7 @@ function Circle({
         className={classNames(container)}
         style={{ zIndex: weight }}
         initial={{ x: '-50%', y: '-30%' }}
-        animate={{ x: '-50%', y: `calc(-50% + ${25 * index}px)` }}
+        animate={{ x: '-50%', y: `calc(-55% + ${25 * index}px)` }}
         exit={{ x: '-50%', y: '30%' }}
       >
         <div
