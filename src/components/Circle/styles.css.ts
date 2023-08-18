@@ -29,7 +29,7 @@ export const valueCircle = style([
   absolute,
   circle,
   full,
-  { left: 0, top: 0, height: '100%' },
+  { left: 0, top: 0, height: '100%', backdropFilter: 'blur(15px)' },
 ]);
 
 export const backgroundCircle = style([

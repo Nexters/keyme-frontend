@@ -29,6 +29,8 @@ type Props = {
   useLabel?: boolean;
 };
 
+const opacity = [0.7, 0.2, 0.1] as const;
+
 function Circle({
   index,
   length,
@@ -39,7 +41,8 @@ function Circle({
 }: Props) {
   const range = useRangeAtomValue() ?? defaultvalue;
   const weight = length - index;
-  const ratio = weight / length;
+  const currentOpacity = opacity[index % opacity.length];
+  const backgroundCircleColor = `rgba(255, 255, 255, ${currentOpacity})`;
   const {
     category: { iconUrl, color, name },
     title,
@@ -63,8 +66,8 @@ function Circle({
         <div
           className={classNames(backgroundCircle)}
           style={{
-            border: `1px solid rgba(255, 255, 255, ${0.7 * ratio})`,
-            background: `rgba(255, 255, 255, ${0.7 * ratio})`,
+            border: `1px solid ${backgroundCircleColor}`,
+            background: backgroundCircleColor,
           }}
         />
         {active && (
