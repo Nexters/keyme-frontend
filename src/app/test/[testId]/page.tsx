@@ -1,19 +1,26 @@
 'use client';
 
 import { Suspense } from '@suspensive/react';
+import { lazy } from 'react';
 
 import { Loader } from '@/components';
-
-import TestPage from './component';
 
 interface Props {
   params: { testId: number };
 }
 
+const Component = lazy(async () => {
+  const [moduleExports] = await Promise.all([
+    import('./component'),
+    new Promise((resolve) => setTimeout(resolve, 300)),
+  ]);
+  return moduleExports;
+});
+
 function Page({ params }: Props) {
   return (
     <Suspense fallback={<Loader />}>
-      <TestPage testId={params.testId} />
+      <Component testId={params.testId} />
     </Suspense>
   );
 }
