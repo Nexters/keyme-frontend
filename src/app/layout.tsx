@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang='ko'>
-      <link rel='icon' href='/favicon.ico' sizes='any' />
       <body className={classNames(pretendard.className)}>
         <Providers>
           <main className={classNames(container)}>{children}</main>
