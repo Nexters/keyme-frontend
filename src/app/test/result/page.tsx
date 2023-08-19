@@ -1,15 +1,16 @@
 'use client';
 
 import { Suspense } from '@suspensive/react';
+import dynamic from 'next/dynamic';
 
 import { Loader } from '@/components';
 
-import ResultPage from './component';
+const Component = dynamic(() => import('./component'));
 
 function Page() {
   return (
     <Suspense fallback={<Loader />}>
-      <ResultPage />
+      <Component />
     </Suspense>
   );
 }

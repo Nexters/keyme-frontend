@@ -1,5 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -20,6 +23,7 @@ const nextConfig = {
     ],
   },
 };
+
 const withVanillaExtract = createVanillaExtractPlugin();
 
-module.exports = withVanillaExtract(nextConfig);
+module.exports = withVanillaExtract(withBundleAnalyzer(nextConfig));

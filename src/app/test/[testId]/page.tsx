@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense } from '@suspensive/react';
-import { lazy } from 'react';
+import dynamic from 'next/dynamic';
 
 import { Loader } from '@/components';
 
@@ -9,7 +9,7 @@ interface Props {
   params: { testId: number };
 }
 
-const Component = lazy(async () => {
+const Component = dynamic(async () => {
   const [moduleExports] = await Promise.all([
     import('./component'),
     new Promise((resolve) => setTimeout(resolve, 300)),
