@@ -64,7 +64,12 @@ function Range({ color, questionId }: Props) {
           </div>
         )}
         renderThumb={({ props }) => (
-          <div {...props} key={props.key} className={classNames(thumb)}>
+          <div
+            {...props}
+            aria-label='Choose a value'
+            key={props.key}
+            className={classNames(thumb)}
+          >
             <div className={classNames(bubble)}>{label[safeCurrentRange]}</div>
           </div>
         )}
