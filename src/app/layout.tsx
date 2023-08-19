@@ -1,6 +1,7 @@
 import '@/styles/globalStyles.css';
 import '@/styles/theme.css';
 
+import { Analytics } from '@vercel/analytics/react';
 import classNames from 'classnames';
 import type { Metadata } from 'next';
 import React from 'react';
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
         <Providers>
           <main className={classNames(container)}>{children}</main>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
