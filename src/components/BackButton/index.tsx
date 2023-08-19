@@ -6,6 +6,7 @@ function BackButton(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       role='button'
+      aria-label='뒤로가기'
       {...props}
       className={classNames(button, props.className)}
     >

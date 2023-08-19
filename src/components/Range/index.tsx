@@ -66,7 +66,7 @@ function Range({ color, questionId }: Props) {
         renderThumb={({ props }) => (
           <div
             {...props}
-            aria-label='Choose a value'
+            aria-label='값을 선택하세요'
             key={props.key}
             className={classNames(thumb)}
           >
