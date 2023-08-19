@@ -50,6 +50,13 @@ function TestPage({ testId }: Props) {
   };
 
   const handleClickNextButton = () => {
+    if (rangeAtomValue) {
+      updateQuestionSubmissionAtom({
+        questionId: currentQuestion.questionId,
+        score: rangeAtomValue,
+      });
+    }
+
     if (isLastQuestion) {
       mutate(
         { results: questionSubmission },
@@ -68,14 +75,9 @@ function TestPage({ testId }: Props) {
       );
       return;
     }
-    if (rangeAtomValue) {
-      updateQuestionSubmissionAtom({
-        questionId: currentQuestion.questionId,
-        score: rangeAtomValue,
-      });
-      setRangeAtomValue(RESET);
-      increment();
-    }
+
+    setRangeAtomValue(RESET);
+    increment();
   };
 
   if (!currentQuestion) {
