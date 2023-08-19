@@ -1,15 +1,32 @@
 import classNames from 'classnames';
 import { useSearchParams } from 'next/navigation';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
 import { Button, Circle, CopyButton } from '@/components';
+import { MAX } from '@/constants/range';
 
 import { circleContainer, copyButton, title } from './style.css';
 
+const MIN = 3;
+
 function ResultPage() {
+  const [value, setValue] = useState(MIN);
+  const timerId = useRef<NodeJS.Timeout | null>(null);
   const searchParams = useSearchParams();
   const nickname = searchParams.get('nickname');
   const code = searchParams.get('code') ?? '';
+
+  useEffect(() => {
+    timerId.current = setTimeout(function tick() {
+      setValue((prev) => Math.max((prev + 1) % (MAX + 1), MIN));
+      timerId.current = setTimeout(tick, 1000);
+    }, 1000);
+
+    return () => {
+      timerId.current && clearTimeout(timerId.current);
+    };
+  }, []);
+
   return (
     <Fragment>
       <h1 className={classNames(title)}>
@@ -21,7 +38,7 @@ function ResultPage() {
           useLabel
           index={0}
           length={1}
-          defaultvalue={3}
+          defaultvalue={value}
           question={{
             category: {
               color: 'FB5563',
