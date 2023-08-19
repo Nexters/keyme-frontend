@@ -23,7 +23,6 @@ export const bottom = style([
   full,
   {
     marginTop: 'auto',
-    padding: '0 16px',
   },
 ]);
 
