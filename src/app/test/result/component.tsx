@@ -35,7 +35,15 @@ function ResultPage() {
         />
       </div>
       <CopyButton className={classNames(copyButton)} code={code} />
-      <Button>앱에서 결과 확인하기</Button>
+      <Button>
+        <a
+          href='https://keyme.page.link/oym1'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          앱에서 결과 확인하기
+        </a>
+      </Button>
     </Fragment>
   );
 }

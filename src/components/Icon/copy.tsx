@@ -8,7 +8,7 @@ function CopyIcon(props: React.HTMLAttributes<HTMLOrSVGElement>) {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <g clip-path='url(#clip0_3823_1965)'>
+      <g clipPath='url(#clip0_3823_1965)'>
         <path
           d='M17 2.5H4C3.17157 2.5 2.5 3.17157 2.5 4V17C2.5 17.8284 3.17157 18.5 4 18.5H17C17.8284 18.5 18.5 17.8284 18.5 17V4C18.5 3.17157 17.8284 2.5 17 2.5Z'
           stroke='white'
@@ -20,7 +20,7 @@ function CopyIcon(props: React.HTMLAttributes<HTMLOrSVGElement>) {
           stroke='white'
           strokeWidth='2'
           strokeLinecap='round'
-          stroke-linejoin='round'
+          strokeLinejoin='round'
         />
         <path
           d='M6.5 10.2429L9.49983 13.0054L14.5 7.85962'
