@@ -5,6 +5,10 @@ const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
+  experimental: {
+    browsersListForSwc: true,
+    legacyBrowsers: false,
+  },
   images: {
     remotePatterns: [
       {
