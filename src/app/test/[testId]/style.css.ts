@@ -16,7 +16,7 @@ export const top = style({
   position: 'relative',
   flex: 1,
   overflow: 'hidden',
-  marginTop: 20,
+  marginTop: 16,
 });
 
 export const bottom = style([

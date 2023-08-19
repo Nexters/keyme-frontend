@@ -22,6 +22,12 @@ export const container = style([
         paddingTop: '100%',
       },
     },
+    '@media': {
+      'screen and (max-height: 800px) and (max-width: 375px)': {
+        maxWidth: 280,
+        maxHeight: 280,
+      },
+    },
   },
 ]);
 
