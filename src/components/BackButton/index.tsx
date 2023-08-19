@@ -4,7 +4,11 @@ import { button } from './style.css';
 
 function BackButton(props: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button {...props} className={classNames(button, props.className)}>
+    <button
+      role='button'
+      {...props}
+      className={classNames(button, props.className)}
+    >
       <svg
         width='12'
         height='22'
