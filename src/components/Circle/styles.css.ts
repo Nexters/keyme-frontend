@@ -23,7 +23,8 @@ export const container = style([
       },
     },
     '@media': {
-      'screen and (max-height: 800px) and (max-width: 375px)': {
+      [`screen and (max-height: 800px),
+       screen and (max-width: 375px)`]: {
         maxWidth: 280,
         maxHeight: 280,
       },
