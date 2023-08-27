@@ -37,7 +37,7 @@ export const useUpdateQuestionSubmissionAtomValueByQuestionId = () => {
           return prevQuestionSubmission;
         });
       }
-
+      console.log('created');
       // CREATE
       return [...prev, questionSubmission];
     });

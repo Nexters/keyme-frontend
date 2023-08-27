@@ -51,33 +51,36 @@ function TestPage({ testId }: Props) {
 
   const handleClickNextButton = () => {
     if (rangeAtomValue) {
+      if (isLastQuestion) {
+        mutate(
+          {
+            results: [
+              ...questionSubmission,
+              { questionId: currentQuestion.questionId, score: rangeAtomValue },
+            ],
+          },
+          {
+            onSuccess: ({ data }) => {
+              if (isWebView()) {
+                return sendTestResult(data);
+              }
+              const search = stringify({
+                nickname,
+                code: data.resultCode,
+              });
+              router.push(PAGE_URLS.TEST_RESULT + '?' + search);
+            },
+          },
+        );
+        return;
+      }
       updateQuestionSubmissionAtom({
         questionId: currentQuestion.questionId,
         score: rangeAtomValue,
       });
+      setRangeAtomValue(RESET);
+      increment();
     }
-
-    if (isLastQuestion) {
-      mutate(
-        { results: questionSubmission },
-        {
-          onSuccess: ({ data }) => {
-            if (isWebView()) {
-              return sendTestResult(data);
-            }
-            const search = stringify({
-              nickname,
-              code: data.resultCode,
-            });
-            router.push(PAGE_URLS.TEST_RESULT + '?' + search);
-          },
-        },
-      );
-      return;
-    }
-
-    setRangeAtomValue(RESET);
-    increment();
   };
 
   if (!currentQuestion) {
