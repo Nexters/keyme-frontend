@@ -10,7 +10,12 @@ export function postSubmitTests(
   testId: Test['testId'],
   body: PostSubmitTestsBody,
 ) {
+  const accessToken = window.navigator.userAgent.split('KEYME_')[1] ?? '';
   return resultify<ApiResponse<TestResult>>(
-    request.post(URLS.submitTests(testId), body),
+    request.post(URLS.submitTests(testId), body, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }),
   );
 }

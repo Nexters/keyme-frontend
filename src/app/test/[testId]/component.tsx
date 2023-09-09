@@ -117,7 +117,7 @@ function TestPage({ testId }: Props) {
             className={classNames(button)}
             onClick={handleClickNextButton}
           >
-            다음
+            {isLastQuestion ? '완료' : '다음'}
           </Button>
         </div>
       </div>
