@@ -8,6 +8,7 @@ globalStyle('*', {
   boxSizing: 'border-box',
   padding: 0,
   margin: 0,
+  WebkitTapHighlightColor: 'transparent',
 });
 
 globalStyle('html, body', {
