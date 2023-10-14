@@ -68,7 +68,7 @@ function TestPage({ testId }: Props) {
                 nickname,
                 code: data.resultCode,
               });
-              router.push(PAGE_URLS.TEST_RESULT + '?' + search);
+              router.push(PAGE_URLS.TEST_SUBMIT + '?' + search);
             },
           },
         );
