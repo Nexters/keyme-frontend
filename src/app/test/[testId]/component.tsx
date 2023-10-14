@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import { RESET } from 'jotai/utils';
 import { useRouter } from 'next/navigation';
 import { stringify } from 'qs';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
 
 import { BackButton, Button, Circle, Progress, Question } from '@/components';
 import { PAGE_URLS } from '@/constants/urls';
@@ -27,7 +28,7 @@ type Props = {
 function TestPage({ testId }: Props) {
   const router = useRouter();
   const { data: testsByIdQueryResponse } = useTestsByIdQuery(testId);
-  const { mutate, isLoading } = useSubmitTestsMutation(testId);
+  const { mutate } = useSubmitTestsMutation(testId);
   const { questions = [], owner } = testsByIdQueryResponse?.data ?? {};
   const { nickname = '' } = owner ?? {};
 
@@ -36,6 +37,7 @@ function TestPage({ testId }: Props) {
   const isFirstQuestion = currentIndex === 0;
   const isLastQuestion = currentIndex === questions.length - 1;
 
+  const [isLoading, setIsLoading] = useState(false);
   const [rangeAtomValue, setRangeAtomValue] = useRangeAtom();
   const questionSubmission = useQuestionSubmissionAtomValue();
   const updateQuestionSubmissionAtom =
@@ -49,38 +51,45 @@ function TestPage({ testId }: Props) {
     decrement();
   };
 
-  const handleClickNextButton = () => {
+  const submitTest = useDebouncedCallback(() => {
     if (rangeAtomValue) {
-      if (isLastQuestion) {
-        mutate(
-          {
-            results: [
-              ...questionSubmission,
-              { questionId: currentQuestion.questionId, score: rangeAtomValue },
-            ],
+      setIsLoading(true);
+      mutate(
+        {
+          results: [
+            ...questionSubmission,
+            { questionId: currentQuestion.questionId, score: rangeAtomValue },
+          ],
+        },
+        {
+          onSuccess: ({ data }) => {
+            if (isWebView()) {
+              return sendTestResult(data);
+            }
+            const search = stringify({
+              nickname,
+              code: data.resultCode,
+            });
+            router.push(PAGE_URLS.TEST_SUBMIT + '?' + search);
           },
-          {
-            onSuccess: ({ data }) => {
-              if (isWebView()) {
-                return sendTestResult(data);
-              }
-              const search = stringify({
-                nickname,
-                code: data.resultCode,
-              });
-              router.push(PAGE_URLS.TEST_SUBMIT + '?' + search);
-            },
-          },
-        );
-        return;
-      }
+        },
+      );
+    }
+  }, 500);
+
+  const handleClickNextButton = () => {
+    if (isLastQuestion) {
+      submitTest();
+      return;
+    }
+    if (rangeAtomValue) {
       updateQuestionSubmissionAtom({
         questionId: currentQuestion.questionId,
         score: rangeAtomValue,
       });
-      setRangeAtomValue(RESET);
-      increment();
     }
+    setRangeAtomValue(RESET);
+    increment();
   };
 
   if (!currentQuestion) {

@@ -38,7 +38,8 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-loader-spinner": "^5.3.4",
-    "react-range": "^1.8.14"
+    "react-range": "^1.8.14",
+    "use-debounce": "^9.0.4"
   },
   "devDependencies": {
     "@types/node": "20.4.1",
