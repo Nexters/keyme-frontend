@@ -27,7 +27,7 @@ type Props = {
 function TestPage({ testId }: Props) {
   const router = useRouter();
   const { data: testsByIdQueryResponse } = useTestsByIdQuery(testId);
-  const { mutate } = useSubmitTestsMutation(testId);
+  const { mutate, isLoading } = useSubmitTestsMutation(testId);
   const { questions = [], owner } = testsByIdQueryResponse?.data ?? {};
   const { nickname = '' } = owner ?? {};
 
@@ -113,11 +113,11 @@ function TestPage({ testId }: Props) {
           <Question question={currentQuestion} nickname={nickname} />
           {/** 하단 다음 버튼 */}
           <Button
-            disabled={rangeAtomValue === undefined}
+            disabled={rangeAtomValue === undefined || isLoading}
             className={classNames(button)}
             onClick={handleClickNextButton}
           >
-            {isLastQuestion ? '완료' : '다음'}
+            {isLoading ? '제출 중' : isLastQuestion ? '완료' : '다음'}
           </Button>
         </div>
       </div>
