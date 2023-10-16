@@ -14,7 +14,7 @@ globalStyle('*', {
 globalStyle('html, body', {
   maxWidth: '100vw',
   overflowX: 'hidden',
-  height: '100vh',
+  height: '100%',
   background: vars.colors.background,
 });
 
