@@ -122,7 +122,7 @@ function TestPage({ testId }: Props) {
           <Question question={currentQuestion} nickname={nickname} />
           {/** 하단 다음 버튼 */}
           <Button
-            disabled={rangeAtomValue === undefined || isLoading}
+            disabled={isLoading}
             className={classNames(button)}
             onClick={handleClickNextButton}
           >

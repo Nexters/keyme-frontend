@@ -1,7 +1,7 @@
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { atomWithReset, useResetAtom } from 'jotai/utils';
 
-const rangeAtom = atomWithReset<undefined | number>(undefined);
+const rangeAtom = atomWithReset<number>(3);
 
 export const useRangeAtom = () => useAtom(rangeAtom);
 
