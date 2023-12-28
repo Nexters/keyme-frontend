@@ -1,20 +1,16 @@
 import classNames from 'classnames';
-import { useSearchParams } from 'next/navigation';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { Button, Circle, CopyButton } from '@/components';
+import { Button, Circle } from '@/components';
 import { MAX } from '@/constants/range';
 
-import { circleContainer, copyButton, title } from './style.css';
+import { circleContainer, container, title } from './style.css';
 
 const MIN = 3;
 
 function ResultPage() {
   const [value, setValue] = useState(MIN);
   const timerId = useRef<NodeJS.Timeout | null>(null);
-  const searchParams = useSearchParams();
-  const nickname = searchParams.get('nickname');
-  const code = searchParams.get('code') ?? '';
 
   useEffect(() => {
     timerId.current = setTimeout(function tick() {
@@ -28,10 +24,8 @@ function ResultPage() {
   }, []);
 
   return (
-    <Fragment>
-      <h1 className={classNames(title)}>
-        {`${nickname}님의\n결과가 궁금하다면?`}
-      </h1>
+    <div className={classNames(container)}>
+      <h1 className={classNames(title)}>{'나도 내 성격이\n궁금하다면?'}</h1>
       <div className={classNames(circleContainer)}>
         <Circle
           active
@@ -51,17 +45,16 @@ function ResultPage() {
           }}
         />
       </div>
-      <CopyButton className={classNames(copyButton)} code={code} />
       <Button>
         <a
           href='https://keyme.page.link/oym1'
           target='_blank'
           rel='noopener noreferrer'
         >
-          앱에서 결과 확인하기
+          키미에서 알아보기
         </a>
       </Button>
-    </Fragment>
+    </div>
   );
 }
 

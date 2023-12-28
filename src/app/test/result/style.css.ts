@@ -1,6 +1,18 @@
 import { style } from '@vanilla-extract/css';
 
-import { full } from '@/styles/utils.css';
+import { center, full } from '@/styles/utils.css';
+
+export const container = style([
+  full,
+  center,
+  {
+    height: '100%',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    paddingTop: 64,
+    paddingBottom: 20,
+  },
+]);
 
 export const title = style([
   full,
@@ -11,7 +23,6 @@ export const title = style([
     fontWeight: 600,
     lineHeight: '130%',
     letterSpacing: -1.2,
-    marginBottom: 36,
   },
 ]);
 
@@ -22,10 +33,5 @@ export const circleContainer = style([
     position: 'relative',
     flex: 1,
     maxHeight: 320,
-    marginBottom: 48,
   },
 ]);
-
-export const copyButton = style({
-  marginBottom: 48,
-});
